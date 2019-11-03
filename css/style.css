@@ -273,6 +273,10 @@ input[type="datetime-local"],
 input[type="month"] {
   -webkit-appearance: listbox; }
 
+input[type="radio"] {
+  margin: 0 10px 0 10px;
+}
+
 textarea {
   overflow: auto;
   resize: vertical; }
@@ -9052,4 +9056,9 @@ h1, h2, h3, h4, h5,
 
 .subButton {
   margin-top: 20px !important;
+}
+
+.centerMe {
+  margin-left: auto;
+  margin-right: auto;
 }
