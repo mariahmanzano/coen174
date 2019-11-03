@@ -65,9 +65,8 @@ article, aside, figcaption, figure, header, hgroup, main, nav, section {
 
 footer {
   display: block;
-  position: fixed;
   left: 0;
-  bottom: 0;
+  bottom: 0 !important;
   width: 100%;
   text-align: center;
   background-color: white;
@@ -212,7 +211,8 @@ th {
 label {
   display: inline-block;
   margin-bottom: 0.5rem;
-  margin-right: 0.5rem; }
+  margin-right: 0.5rem;
+  margin-left: 1.0rem; }
 
 button {
   border-radius: 0; }
