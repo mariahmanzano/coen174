@@ -265,7 +265,9 @@ input[type="radio"],
 input[type="checkbox"] {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 0; }
+  padding: 0;
+  margin: 0 10px 0 10px;
+}
 
 input[type="date"],
 input[type="time"],
@@ -8788,7 +8790,12 @@ h1, h2, h3, h4, h5,
 .form-login .card-body .input-group .input-group-prepend .input-group-text {
   width: 40px;
   border-color: rgba(0, 0, 0, 0.1);
+<<<<<<< HEAD
   padding: 0; }
+=======
+  padding: 0; 
+}
+>>>>>>> 1a4d10fc1d50e8b47b93972742097aedaaceb535
   .form-login .card-body .input-group .input-group-prepend .input-group-text i {
     color: #3e64ff;
     margin: 0 auto; }
