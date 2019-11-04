@@ -57,16 +57,17 @@
             
             <div class="container" style="position: relative;">
                 <h1 style="text-align: center; margin-top: 30px; margin-bottom: 30px;">Create a Session</h1>
-                <form style="text-align: center;">
+		    
+                <form method="post" action="" style="text-align: center;">
                     <fieldset>
                         <legend>Session Information</legend>
                         <p>
                             <label>Session Number</label>
-                            <input type="text" id="sessionNum" required>
+                            <input type="text" id="sessionNum" name="sessionNum" required>
                         </p>
                         <p>
                             <label>Room Number</label>
-                            <input type="text" id="roomNum" required>
+                            <input type="text" id="roomNum" name="roomNum" required>
                         </p>
                     </fieldset>
                     
@@ -83,17 +84,17 @@
 
                                 <p>
                                     <label>Project Title</label>
-                                    <input type="text" id="project">
+                                    <input type="text" id="project" name="project">
                                 </p>
 
                                 <p>
                                     <label>Group Members</label>
-                                    <input type="text" id="group"><br/>
+                                    <input type="text" id="group" name="group"><br/>
                                 </p>
 
                                 <p>
                                     <label>Group Advisor</label>
-                                    <input type="text" id="advisor"><br/>
+                                    <input type="text" id="advisor" name="advisor"><br/>
                                 </p>
  
                             </div>
