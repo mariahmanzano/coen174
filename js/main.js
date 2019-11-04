@@ -142,7 +142,7 @@
 	};
 	contentWayPoint();
 
-
+/*
 	var slider = document.getElementById('slider');
 
 	noUiSlider.create(slider, {
@@ -196,6 +196,6 @@
 
 	});
 
-
+*/
 })(jQuery);
 
