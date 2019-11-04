@@ -8786,7 +8786,8 @@ h1, h2, h3, h4, h5,
 .form-login .card-body .input-group .input-group-prepend .input-group-text {
   width: 40px;
   border-color: rgba(0, 0, 0, 0.1);
-  padding: 0; }
+  padding: 0; 
+}
   .form-login .card-body .input-group .input-group-prepend .input-group-text i {
     color: #3e64ff;
     margin: 0 auto; }
