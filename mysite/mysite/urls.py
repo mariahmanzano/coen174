@@ -20,5 +20,18 @@ from . import views
 urlpatterns = [
 	path('admin/', admin.site.urls),
 	path('home/', views.home, name='home'),
-	path('home/admin/', views.admin, name='admin')
+	path('home/admin/', views.admin, name='admin'),
+	path('home/admin/adminoptions/', views.adminoptions, name='adminoptions'),
+	path('home/admin/adminoptions/sendscores/', views.sendscores, name='sendscores'),
+	path('home/admin/adminoptions/adminforms/', views.adminforms, name='adminforms'),
+	path('home/admin/adminoptions/sendscores/thankyouadmin/', views.thankyouadmin, name='thankyouadmin'),
+	path('home/admin/adminoption/adminforms/thankyouadmin/', views.thankyouadmin, name='thankyouadmin'),
+
+	path('home/judge/', views.judge, name='judge'),
+	path('home/judge/judgeforms/', views.judgeforms, name='judgeforms'),
+	path('home/judge/judgeforms/persession/', views.persession, name='persession'),
+	path('home/judge/judgeforms/pergroup/', views.pergroup, name='pergroup'),
+	path('home/judge/judgeforms/persession/thankyou/', views.thankyou, name='thankyou'),
+	path('home/judge/judgeforms/pergroup/thankyou/', views.thankyou, name='thankyou')
 ]
+
