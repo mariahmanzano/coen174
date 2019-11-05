@@ -25,7 +25,12 @@ SECRET_KEY = '-5zp!tafl9w&%8ye-$i(y%&yaug*xgu&n65ny167r!4(-q8$jg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '0.0.0.0',
+    '127.0.0.1',
+    'http://ec2-52-53-241-60.us-west-1.compute.amazonaws.com',
+    'ec2-52-53-241-60.us-west-1.compute.amazonaws.com',
+]
 
 
 # Application definition
@@ -54,7 +59,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,3 +123,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "templates")
+
+STATICFILES_DIRS = (
+	os.path.join(BASE_DIR, "templates"),
+)
