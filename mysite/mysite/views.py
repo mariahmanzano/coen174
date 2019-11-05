@@ -37,6 +37,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from .forms import NewSessionForm
+from .models import NewSessionForm
 
 def get_session(request):
 	# if this is a POST request we need to process the form data
@@ -65,6 +66,7 @@ def get_session(request):
 
 
 from .forms import PerGroupForm
+from .models import PerGroupForm
 
 def get_pergroup(request):
 	# if this is a POST request we need to process the form data
@@ -109,6 +111,7 @@ def get_pergroup(request):
 
 
 from .forms import PerSessionForm
+from .models import PerSessionForm
 
 def get_persession(request):
 	# if this is a POST request we need to process the form data
