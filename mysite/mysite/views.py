@@ -19,13 +19,13 @@ def sendscores(request):
 	return render(request, 'sendscores.html')
 
 def persession(request):
-	return render(request, 'persession.html')
+	return render(request, 'perSession.html')
 
 def adminforms(request):
 	return render(request, 'adminforms.html')
 
 def pergroup(request):
-	return render(request, 'pergroup.html')
+	return render(request, 'perGroup.html')
 
 def thankyouadmin(request):
 	return render(request, 'thankyouadmin.html')
