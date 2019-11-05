@@ -32,7 +32,7 @@ urlpatterns = [
 	path('home/admin/adminoptions/adminforms/', views.adminforms, name='adminforms'),
 	# Path to Thank You Admin
 	path('home/admin/adminoptions/sendscores/thankyouadmin/', views.thankyouadmin, name='thankyouadmin'),
-	path('home/admin/adminoption/adminforms/thankyouadmin/', views.thankyouadmin, name='thankyouadmin'),
+	path('home/admin/adminoptions/adminforms/thankyouadmin/', views.thankyouadmin, name='thankyouadmin'),
 
 	# Path to Judge
 	path('home/judge/', views.judge, name='judge'),
