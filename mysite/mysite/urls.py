@@ -19,18 +19,30 @@ from . import views
 
 urlpatterns = [
 	path('admin/', admin.site.urls),
+	# Path to Index
 	path('home/', views.home, name='home'),
+
+	# Path to Admin
 	path('home/admin/', views.admin, name='admin'),
+	# Path to Admin Options
 	path('home/admin/adminoptions/', views.adminoptions, name='adminoptions'),
+	# Path to Send Scores
 	path('home/admin/adminoptions/sendscores/', views.sendscores, name='sendscores'),
+	# Path to Admin Forms
 	path('home/admin/adminoptions/adminforms/', views.adminforms, name='adminforms'),
+	# Path to Thank You Admin
 	path('home/admin/adminoptions/sendscores/thankyouadmin/', views.thankyouadmin, name='thankyouadmin'),
 	path('home/admin/adminoption/adminforms/thankyouadmin/', views.thankyouadmin, name='thankyouadmin'),
 
+	# Path to Judge
 	path('home/judge/', views.judge, name='judge'),
+	# Path to Judge Forms
 	path('home/judge/judgeforms/', views.judgeforms, name='judgeforms'),
+	# Path to Per Session Forms
 	path('home/judge/judgeforms/persession/', views.persession, name='persession'),
+	# Path to Per Group Forms
 	path('home/judge/judgeforms/pergroup/', views.pergroup, name='pergroup'),
+	# Path to Thank You Judges
 	path('home/judge/judgeforms/persession/thankyou/', views.thankyou, name='thankyou'),
 	path('home/judge/judgeforms/pergroup/thankyou/', views.thankyou, name='thankyou')
 ]
