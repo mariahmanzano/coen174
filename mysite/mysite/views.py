@@ -139,5 +139,4 @@ def get_persession(request):
 	# if a GET (or any other method) we'll create a blank form
 	else:
 		form = PerSessionForm()
-
-    return render(request, 'perSession.html', {'form': form})
+    	return render(request, 'perSession.html', {'form': form})
