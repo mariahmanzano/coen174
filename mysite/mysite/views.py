@@ -52,6 +52,8 @@ def get_session(request):
             project_name= form.cleaned_data['project']
             group_name= form.cleaned_data['group']
             advisor_name= form.cleaned_data['advisor']
+		
+	    form.save()
             
             # redirect to a new URL:
             return HttpResponseRedirect('/thankyouadmin/')
@@ -96,6 +98,7 @@ def get_pergroup(request):
             overview= form.cleaned_data['topics']
             comments= form.cleaned_data['comments']
             
+	    form.save()
             
             # redirect to a new URL:
             return HttpResponseRedirect('/thankyou/')
@@ -132,6 +135,8 @@ def get_persession(request):
             q12= form.cleaned_data['q12']
 
             comments= form.cleaned_data['comments']
+	
+	    form.save()
             
             # redirect to a new URL:
             return HttpResponseRedirect('/thankyou/')
