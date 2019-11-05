@@ -39,12 +39,12 @@ from django.shortcuts import render
 from .forms import NewSessionForm
 
 def get_session(request):
-    # if this is a POST request we need to process the form data
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = NewSessionForm(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
+	# if this is a POST request we need to process the form data
+	if request.method == 'POST':
+	# create a form instance and populate it with data from the request:
+	form = NewSessionForm(request.POST)
+	# check whether it's valid:
+	if form.is_valid():
 		# process the data in form.cleaned_data as required
 		sessionNum = form.cleaned_data['sessionNum']
 		roomNum = form.cleaned_data['roomNum']
@@ -57,22 +57,22 @@ def get_session(request):
 		# redirect to a new URL:
 		return HttpResponseRedirect('/thankyouadmin/')
 
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = NewSessionForm()
+	# if a GET (or any other method) we'll create a blank form
+	else:
+	form = NewSessionForm()
 
-    return render(request, 'adminforms.html', {'form': form})
+	return render(request, 'adminforms.html', {'form': form})
 
 
 from .forms import PerGroupForm
 
 def get_pergroup(request):
-    # if this is a POST request we need to process the form data
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = PerGroupForm(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
+	# if this is a POST request we need to process the form data
+	if request.method == 'POST':
+	# create a form instance and populate it with data from the request:
+	form = PerGroupForm(request.POST)
+	# check whether it's valid:
+	if form.is_valid():
 		# process the data in form.cleaned_data as required
 		sessionNum = form.cleaned_data['sessionNum']
 		roomNum = form.cleaned_data['roomNum']
@@ -101,22 +101,22 @@ def get_pergroup(request):
 		# redirect to a new URL:
 		return HttpResponseRedirect('/thankyou/')
 
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form =PerGroupForm()
+	# if a GET (or any other method) we'll create a blank form
+	else:
+	form =PerGroupForm()
 
-    return render(request, 'perGroup.html', {'form': form})
+	return render(request, 'perGroup.html', {'form': form})
 
 
 from .forms import PerSessionForm
 
 def get_persession(request):
-    # if this is a POST request we need to process the form data
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = PerSessionForm(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
+	# if this is a POST request we need to process the form data
+	if request.method == 'POST':
+	# create a form instance and populate it with data from the request:
+	form = PerSessionForm(request.POST)
+	# check whether it's valid:
+	if form.is_valid():
 		# process the data in form.cleaned_data as required
 		dis1= form.cleaned_data['dis1']
 		q1= form.cleaned_data['q1']
@@ -138,8 +138,8 @@ def get_persession(request):
 		# redirect to a new URL:
 		return HttpResponseRedirect('/thankyou/')
 
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = PerSessionForm()
+	# if a GET (or any other method) we'll create a blank form
+	else:
+	form = PerSessionForm()
 
     return render(request, 'perSession.html', {'form': form})
