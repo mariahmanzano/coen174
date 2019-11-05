@@ -51,15 +51,11 @@
                         <p>
                             <label>Session Number</label>
                             <select id="sessionNum" required>
-                                <option value = "1">1</option>
-                                <option value = "2">2</option>
-                                <option value = "3">3</option>
+                                <option value = "{{form.sessionNum.value}}"></option>
                             </select>
                             <label>Room Number</label>
                             <select id="roomNum" required>
-                                <option value = "1">1</option>
-                                <option value = "2">2</option>
-                                <option value = "3">3</option>
+                                <option value = "{{form.roomNum.value}}"></option>
                             </select>
                         </p>
                     </fieldset>
@@ -68,21 +64,15 @@
                         <p>
                             <label>Project Title</label>
                             <select id="project" required>
-                                <option value = "1">1</option>
-                                <option value = "2">2</option>
-                                <option value = "3">3</option>
+                                <option value = "{{form.project_name}}"></option>
                             </select>
                             <label>Group Members</label>
                             <select id="group" required>
-                                <option value = "1">1</option>
-                                <option value = "2">2</option>
-                                <option value = "3">3</option>
+                                <option value = "{{form.group_name}}"></option>
                             </select>
                             <label>Advisors</label>
                             <select id="advisor" required>
-                                <option value = "1">1</option>
-                                <option value = "2">2</option>
-                                <option value = "3">3</option>
+                                <option value = "{{form.advisor_name}}"></option>
                             </select>
                         </p>
                     </fieldset>
