@@ -45,18 +45,17 @@ def get_session(request):
         form = NewSessionForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            # process the data in form.cleaned_data as required
-            sessionNum = form.cleaned_data['sessionNum']
-            roomNum = form.cleaned_data['roomNum']
+		# process the data in form.cleaned_data as required
+		sessionNum = form.cleaned_data['sessionNum']
+		roomNum = form.cleaned_data['roomNum']
 
-            project_name= form.cleaned_data['project']
-            group_name= form.cleaned_data['group']
-            advisor_name= form.cleaned_data['advisor']
-		
-	    form.save()
-            
-            # redirect to a new URL:
-            return HttpResponseRedirect('/thankyouadmin/')
+		project_name= form.cleaned_data['project']
+		group_name= form.cleaned_data['group']
+		advisor_name= form.cleaned_data['advisor']
+
+		form.save()
+		# redirect to a new URL:
+		return HttpResponseRedirect('/thankyouadmin/')
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -74,34 +73,33 @@ def get_pergroup(request):
         form = PerGroupForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            # process the data in form.cleaned_data as required
-            sessionNum = form.cleaned_data['sessionNum']
-            roomNum = form.cleaned_data['roomNum']
+		# process the data in form.cleaned_data as required
+		sessionNum = form.cleaned_data['sessionNum']
+		roomNum = form.cleaned_data['roomNum']
 
-            project_name= form.cleaned_data['project']
-            group_name= form.cleaned_data['group']
-            advisor_name= form.cleaned_data['advisor']
+		project_name= form.cleaned_data['project']
+		group_name= form.cleaned_data['group']
+		advisor_name= form.cleaned_data['advisor']
 
-            technical_accuracy= form.cleaned_data['design1']
-            creativity= form.cleaned_data['design2']
-            supporting_work= form.cleaned_data['design3']
-            design_process= form.cleaned_data['design4']
-            project_complexity= form.cleaned_data['design5']
-            completion= form.cleaned_data['design6']
-            tests= form.cleaned_data['design7']
-            response= form.cleaned_data['design8']
-            organization= form.cleaned_data['pres1']
-            time= form.cleaned_data['pres2']
-            visual= form.cleaned_data['pres3']
-            confidence= form.cleaned_data['pres4']
+		technical_accuracy= form.cleaned_data['design1']
+		creativity= form.cleaned_data['design2']
+		supporting_work= form.cleaned_data['design3']
+		design_process= form.cleaned_data['design4']
+		project_complexity= form.cleaned_data['design5']
+		completion= form.cleaned_data['design6']
+		tests= form.cleaned_data['design7']
+		response= form.cleaned_data['design8']
+		organization= form.cleaned_data['pres1']
+		time= form.cleaned_data['pres2']
+		visual= form.cleaned_data['pres3']
+		confidence= form.cleaned_data['pres4']
 
-            overview= form.cleaned_data['topics']
-            comments= form.cleaned_data['comments']
-            
-	    form.save()
-            
-            # redirect to a new URL:
-            return HttpResponseRedirect('/thankyou/')
+		overview= form.cleaned_data['topics']
+		comments= form.cleaned_data['comments']
+
+		form.save()
+		# redirect to a new URL:
+		return HttpResponseRedirect('/thankyou/')
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -119,27 +117,26 @@ def get_persession(request):
         form = PerSessionForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            # process the data in form.cleaned_data as required
-            dis1= form.cleaned_data['dis1']
-            q1= form.cleaned_data['q1']
-            q2= form.cleaned_data['q2']
-            q3= form.cleaned_data['q3']
-            q4= form.cleaned_data['q4']
-            q5= form.cleaned_data['q5']
-            q6= form.cleaned_data['q6']
-            q7= form.cleaned_data['q7']
-            q8= form.cleaned_data['q8']
-            q9= form.cleaned_data['q9']
-            q10= form.cleaned_data['q10']
-            q11= form.cleaned_data['q11']
-            q12= form.cleaned_data['q12']
+		# process the data in form.cleaned_data as required
+		dis1= form.cleaned_data['dis1']
+		q1= form.cleaned_data['q1']
+		q2= form.cleaned_data['q2']
+		q3= form.cleaned_data['q3']
+		q4= form.cleaned_data['q4']
+		q5= form.cleaned_data['q5']
+		q6= form.cleaned_data['q6']
+		q7= form.cleaned_data['q7']
+		q8= form.cleaned_data['q8']
+		q9= form.cleaned_data['q9']
+		q10= form.cleaned_data['q10']
+		q11= form.cleaned_data['q11']
+		q12= form.cleaned_data['q12']
 
-            comments= form.cleaned_data['comments']
-	
-	    form.save()
-            
-            # redirect to a new URL:
-            return HttpResponseRedirect('/thankyou/')
+		comments= form.cleaned_data['comments']
+
+		form.save()
+		# redirect to a new URL:
+		return HttpResponseRedirect('/thankyou/')
 
     # if a GET (or any other method) we'll create a blank form
     else:
