@@ -1,4 +1,5 @@
 from django import forms
+from django.db import models
 
 class NewSessionForm(forms.ModelForm):
     sessionNum = forms.CharField(min_length=1)
