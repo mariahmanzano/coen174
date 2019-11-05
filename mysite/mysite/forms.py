@@ -1,6 +1,6 @@
 from django import forms
 
-class NewSessionForm(forms.Form):
+class NewSessionForm(forms.ModelForm):
     sessionNum = forms.CharField(min_length=1)
     roomNum = forms.CharField(min_length=1)
     
@@ -9,7 +9,7 @@ class NewSessionForm(forms.Form):
     advisor_name= forms.CharField()
   
 
-class PerGroupForm(forms.Form):
+class PerGroupForm(forms.ModelForm):
     sessionNum = forms.IntegerField()
     roomNum = forms.IntegerField()
     
@@ -35,7 +35,7 @@ class PerGroupForm(forms.Form):
     
     
     
-class PerSessionForm(forms.Form):
+class PerSessionForm(forms.ModelForm):
     discipline= forms.ChoiceField()
     
     q1= forms.IntegerField()
