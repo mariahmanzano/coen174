@@ -36,113 +36,117 @@ def thankyou(request):
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from .forms import NewSessionForm
+
 from .models import NewSessionForm
 
-def get_session(request):
+def add_session(request):
 	# if this is a POST request we need to process the form data
 	if request.method == 'POST':
 		# create a form instance and populate it with data from the request:
-		form = NewSessionForm(request.POST)
+		mysession = Session()
+		
+		 # process the data in form.cleaned_data as required
+		mysession.sessionNum = request.POST['sessionNum']
+		mysession.roomNum = request.POST['roomNum']
+		mysession.project_name= request.POST['project']
+
+		# TODO: could be more than one group in the session, create a loop
+		mysession.group_name= request.POST['group']
+		mysession.advisor_name= request.POST['advisor']
+	
 		# check whether it's valid:
-		if form.is_valid():
-			# process the data in form.cleaned_data as required
-			sessionNum = form.cleaned_data['sessionNum']
-			roomNum = form.cleaned_data['roomNum']
-
-			project_name= form.cleaned_data['project']
-			group_name= form.cleaned_data['group']
-			advisor_name= form.cleaned_data['advisor']
-
-			form.save()
+		if mysession.is_valid():
+			
+			mysession.save()
 			# redirect to a new URL:
 			return HttpResponseRedirect('/thankyouadmin/')
 
 	# if a GET (or any other method) we'll create a blank form
 	else:
-		form = NewSessionForm()
+		mysession = Session()
 		
 	return render(request, 'adminforms.html', {'form': form})
 
 
-from .forms import PerGroupForm
 from .models import PerGroupForm
 
 def get_pergroup(request):
 	# if this is a POST request we need to process the form data
 	if request.method == 'POST':
 		# create a form instance and populate it with data from the request:
-		form = PerGroupForm(request.POST)
+		mygroup = Group()
+		
+		# process the data in form.cleaned_data as required
+		mygrroup.sessionNum = request.POST['sessionNum']
+		mygroup.roomNum = request.POST['roomNum']
+
+		mygroup.project_name= request.POST['project']
+		mygroup.group_name= request.POST'group']
+		mygroup.advisor_name= request.POST['advisor']
+
+		mygroup.technical_accuracy= request.POST['design1']
+		mygroup.creativity= request.POST['design2']
+		mygroup.supporting_work= request.POST['design3']
+		mygroup.design_process= request.POST['design4']
+		mygroup.project_complexity= request.POST['design5']
+		mygroup.completion= request.POST['design6']
+		mygroup.tests= request.POST['design7']
+		mygroup.response= request.POST['design8']
+		mygroup.organization= request.POST['pres1']
+		mygroup.time= request.POST['pres2']
+		mygroup.visual= request.POST['pres3']
+		mygroup.confidence= request.POST['pres4']
+
+		mygroup.overview= request.POST['topics']
+		mygroup.comments= request.POST['comments']
+		
 		# check whether it's valid:
-		if form.is_valid():
-			# process the data in form.cleaned_data as required
-			sessionNum = form.cleaned_data['sessionNum']
-			roomNum = form.cleaned_data['roomNum']
+		if mygroup.is_valid():
 
-			project_name= form.cleaned_data['project']
-			group_name= form.cleaned_data['group']
-			advisor_name= form.cleaned_data['advisor']
-
-			technical_accuracy= form.cleaned_data['design1']
-			creativity= form.cleaned_data['design2']
-			supporting_work= form.cleaned_data['design3']
-			design_process= form.cleaned_data['design4']
-			project_complexity= form.cleaned_data['design5']
-			completion= form.cleaned_data['design6']
-			tests= form.cleaned_data['design7']
-			response= form.cleaned_data['design8']
-			organization= form.cleaned_data['pres1']
-			time= form.cleaned_data['pres2']
-			visual= form.cleaned_data['pres3']
-			confidence= form.cleaned_data['pres4']
-
-			overview= form.cleaned_data['topics']
-			comments= form.cleaned_data['comments']
-
-			form.save()
+			mygroup.save()
 			# redirect to a new URL:
 			return HttpResponseRedirect('/thankyou/')
 
 	# if a GET (or any other method) we'll create a blank form
 	else:
-		form =PerGroupForm()
+		mygroup =Group()
 		
 	return render(request, 'perGroup.html', {'form': form})
 
 
-from .forms import PerSessionForm
 from .models import PerSessionForm
 
 def get_persession(request):
 	# if this is a POST request we need to process the form data
 	if request.method == 'POST':
 		# create a form instance and populate it with data from the request:
-		form = PerSessionForm(request.POST)
+		mysession = Session()
+		
+		# process the data in form.cleaned_data as required
+		mysession.dis1= request.POST['dis1']
+		mysession.q1= request.POST['q1']
+		mysession.q2= request.POST['q2']
+		mysession.q3= request.POST['q3']
+		mysession.q4= request.POST['q4']
+		mysession.q5= request.POST['q5']
+		mysession.q6= request.POST['q6']
+		mysession.q7= request.POST['q7']
+		mysession.q8= request.POST['q8']
+		mysession.q9= request.POST['q9']
+		mysession.q10= request.POST['q10']
+		mysession.q11= request.POST['q11']
+		mysession.q12= request.POST['q12']
+
+		mysession.comments= request.POST['comments']
+		
 		# check whether it's valid:
-		if form.is_valid():
-			# process the data in form.cleaned_data as required
-			dis1= form.cleaned_data['dis1']
-			q1= form.cleaned_data['q1']
-			q2= form.cleaned_data['q2']
-			q3= form.cleaned_data['q3']
-			q4= form.cleaned_data['q4']
-			q5= form.cleaned_data['q5']
-			q6= form.cleaned_data['q6']
-			q7= form.cleaned_data['q7']
-			q8= form.cleaned_data['q8']
-			q9= form.cleaned_data['q9']
-			q10= form.cleaned_data['q10']
-			q11= form.cleaned_data['q11']
-			q12= form.cleaned_data['q12']
+		if mysession.is_valid():
 
-			comments= form.cleaned_data['comments']
-
-			form.save()
+			mysession.save()
 			# redirect to a new URL:
 			return HttpResponseRedirect('/thankyou/')
 
     # if a GET (or any other method) we'll create a blank form
-'''else:
-        form = PerSessionForm()
+	else:
+        	mysession = Session()
         return render(request, 'perSession.html', {'form': form})
-'''
