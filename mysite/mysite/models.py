@@ -3,21 +3,21 @@ from django.forms import ModelForm
 from django.db import models
 
 class NewSessionForm(models.Model):
-    sessionNum = models.CharField(min_length=1)
-    roomNum = models.CharField(min_length=1)
+    sessionNum = models.CharField(max_length=10)
+    roomNum = models.CharField(max_length=10)
     
-    project_name= models.CharField()
-    group_name= models.CharField()
-    advisor_name= model.CharField()
+    project_name= models.CharField(max_length=20)
+    group_name= models.CharField(max_length=20)
+    advisor_name= model.CharField(max_length=20)
   
 
 class PerGroupForm(models.Model):
     sessionNum = models.IntegerField()
     roomNum = models.IntegerField()
     
-    project_name= models.ChoiceField()
-    group_name= models.ChoiceField()
-    advisor_name= models.ChoiceField()
+    project_name= models.CharField(max_length=20)
+    group_name= models.CharField(max_length=20)
+    advisor_name= models.CharField(max_length=20)
     
     technical_accuracy= models.IntegerField()
     creativity= models.IntegerField()
@@ -32,13 +32,13 @@ class PerGroupForm(models.Model):
     visual= model.IntegerField()
     confidence= model.IntegerField()
     
-    overview= models.ChoiceField()
-    comments= models.CharField()
+    overview= models.CharField(max_length=20)
+    comments= models.CharField(max_length=100)
     
     
     
 class PerSessionForm(models.Model):
-    discipline= forms.ChoiceField()
+    discipline= forms.CharField(max_length=20)
     
     q1= models.IntegerField()
     q2= models.IntegerField()
@@ -53,4 +53,4 @@ class PerSessionForm(models.Model):
     q11= models.IntegerField()
     q12= models.IntegerField()
     
-    comments= models.CharField()
+    comments= models.CharField(max_length=100)
