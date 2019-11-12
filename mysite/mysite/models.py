@@ -8,7 +8,7 @@ class NewSessionForm(models.Model):
     
     project_name= models.CharField(max_length=20)
     group_name= models.CharField(max_length=20)
-    advisor_name= model.CharField(max_length=20)
+    advisor_name= models.CharField(max_length=20)
   
 
 class PerGroupForm(models.Model):
@@ -29,8 +29,8 @@ class PerGroupForm(models.Model):
     response= models.IntegerField()
     organization= models.IntegerField()
     time= models.IntegerField()
-    visual= model.IntegerField()
-    confidence= model.IntegerField()
+    visual= models.IntegerField()
+    confidence= models.IntegerField()
     
     overview= models.CharField(max_length=20)
     comments= models.CharField(max_length=100)
