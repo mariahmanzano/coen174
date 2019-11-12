@@ -81,7 +81,7 @@ def get_pergroup(request):
 		mygroup.roomNum = request.POST['roomNum']
 
 		mygroup.project_name= request.POST['project']
-		mygroup.group_name= request.POST'group']
+		mygroup.group_name= request.POST['group']
 		mygroup.advisor_name= request.POST['advisor']
 
 		mygroup.technical_accuracy= request.POST['design1']
