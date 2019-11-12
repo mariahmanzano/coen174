@@ -146,7 +146,7 @@ def get_persession(request):
 			# redirect to a new URL:
 			return HttpResponseRedirect('/thankyou/')
 
-    # if a GET (or any other method) we'll create a blank form
+	# if a GET (or any other method) we'll create a blank form
 	else:
         	mysession = Session()
-        return render(request, 'perSession.html', {'form': form})
+	return render(request, 'perSession.html', {'form': form})
