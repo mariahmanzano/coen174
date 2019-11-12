@@ -31,6 +31,14 @@ urlpatterns = [
 	path('home/admin/adminoptions/sendscores/', views.sendscores, name='sendscores'),
 	# Path to Admin Forms
 	path('home/admin/adminoptions/adminforms/', views.adminforms, name='adminforms'),
+	
+	# Path to add a new session
+   	path('home/admin/add_session/', views.add_session, name='addsession'),
+	# Path to judge a group
+    	path('home/admin/pergroup/', views.get_pergroup, name='getpergroup'),
+	# Path to judge a session
+    	path('home/admin/persession/', views.get_persession, name='getpersession'),
+	
 	# Path to Thank You Admin
 	path('home/admin/adminoptions/sendscores/thankyouadmin/', views.thankyouadmin, name='thankyouadmin'),
 	path('home/admin/adminoptions/adminforms/thankyouadmin/', views.thankyouadmin, name='thankyouadmin'),
@@ -46,5 +54,6 @@ urlpatterns = [
 	# Path to Thank You Judges
 	path('home/judge/judgeforms/persession/thankyou/', views.thankyou, name='thankyou'),
 	path('home/judge/judgeforms/pergroup/thankyou/', views.thankyou, name='thankyou')
+	
 ]
 
