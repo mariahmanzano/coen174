@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+
 def home(request):
 	return render(request, 'index.html')
 
@@ -36,8 +37,7 @@ def thankyou(request):
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-
-from .models import NewSessionForm
+from mysite.models import NewSessionForm
 
 def add_session(request):
 	# if this is a POST request we need to process the form data
@@ -68,7 +68,7 @@ def add_session(request):
 	return render(request, 'adminforms.html', {'form': form})
 
 
-from .models import PerGroupForm
+from mysite.models import PerGroupForm
 
 def get_pergroup(request):
 	# if this is a POST request we need to process the form data
@@ -114,7 +114,7 @@ def get_pergroup(request):
 	return render(request, 'perGroup.html', {'form': form})
 
 
-from .models import PerSessionForm
+from mysite.models import PerSessionForm
 
 def get_persession(request):
 	# if this is a POST request we need to process the form data
