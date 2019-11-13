@@ -7,7 +7,9 @@ class NewSessionForm(models.Model):
     project_name= models.CharField(max_length=20)
     group_name= models.CharField(max_length=20)
     advisor_name= models.CharField(max_length=20)
-  
+    
+    def is_valid():
+        return true;
 
 class PerGroupForm(models.Model):
     sessionNum = models.IntegerField()
@@ -33,10 +35,11 @@ class PerGroupForm(models.Model):
     overview= models.CharField(max_length=20)
     comments= models.CharField(max_length=100)
     
-    
+    def is_valid():
+        return true;
     
 class PerSessionForm(models.Model):
-    discipline= forms.CharField(max_length=20)
+    discipline= models.CharField(max_length=20)
     
     q1= models.IntegerField()
     q2= models.IntegerField()
@@ -52,3 +55,6 @@ class PerSessionForm(models.Model):
     q12= models.IntegerField()
     
     comments= models.CharField(max_length=100)
+    
+    def is_valid():
+        return true;
