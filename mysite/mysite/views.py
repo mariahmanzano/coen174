@@ -43,7 +43,7 @@ def add_session(request):
 	# if this is a POST request we need to process the form data
 	if request.method == 'POST':
 		# create a form instance and populate it with data from the request:
-		mysession = Session()
+		mysession = NewSessionForm()
 		
 		 # process the data in form.cleaned_data as required
 		mysession.sessionNum = request.POST['sessionNum']
@@ -74,7 +74,7 @@ def get_pergroup(request):
 	# if this is a POST request we need to process the form data
 	if request.method == 'POST':
 		# create a form instance and populate it with data from the request:
-		mygroup = Group()
+		mygroup = PerGroupForm()
 		
 		# process the data in form.cleaned_data as required
 		mygrroup.sessionNum = request.POST['sessionNum']
@@ -120,7 +120,7 @@ def get_persession(request):
 	# if this is a POST request we need to process the form data
 	if request.method == 'POST':
 		# create a form instance and populate it with data from the request:
-		mysession = Session()
+		mysession = PerSessionForm()
 		
 		# process the data in form.cleaned_data as required
 		mysession.dis1= request.POST['dis1']
