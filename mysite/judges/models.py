@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 
 class NewSessionForm(models.Model):
     sessionNum = models.CharField(max_length=10)
@@ -36,7 +37,7 @@ class PerGroupForm(models.Model):
     
     
 class PerSessionForm(models.Model):
-    discipline= forms.CharField(max_length=20)
+    discipline = forms.CharField(max_length=20)
     
     q1= models.IntegerField()
     q2= models.IntegerField()
