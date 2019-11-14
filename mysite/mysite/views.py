@@ -63,7 +63,7 @@ def add_session(request):
 
 	# if a GET (or any other method) we'll create a blank form
 	else:
-		mysession = Session()
+		mysession = NewSessionForm()
 		
 	return render(request, 'adminforms.html', {'form': form})
 
@@ -109,7 +109,7 @@ def get_pergroup(request):
 
 	# if a GET (or any other method) we'll create a blank form
 	else:
-		mygroup =Group()
+		mygroup =PerGroupForm()
 		
 	return render(request, 'perGroup.html', {'form': form})
 
@@ -148,5 +148,5 @@ def get_persession(request):
 
 	# if a GET (or any other method) we'll create a blank form
 	else:
-        	mysession = Session()
+        	mysession = PerSessionForm()
 	return render(request, 'perSession.html', {'form': form})
