@@ -1,5 +1,6 @@
 from django.contrib import admin
-from judges.models import NewSessionForm, PerGroupForm, PerSessionForm
+from manager.models import NewSessionForm
+from judges.models import PerGroupForm, PerSessionForm
 
 admin.site.register(NewSessionForm)
 admin.site.register(PerGroupForm)

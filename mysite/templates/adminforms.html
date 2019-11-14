@@ -52,8 +52,9 @@
             <div class="container" style="position: relative;">
                 <h1 style="text-align: center; margin-top: 30px; margin-bottom: 30px;">Create a Session</h1>
 		    
-                <form method="post" action="home/admin/add-session/" style="text-align: center;">
-                    <fieldset>
+                <form method="POST" action="/home/admin/adminoptions/adminforms/" style="text-align: center;">
+					{% csrf_token %}
+					<fieldset>
                         <legend>Session Information</legend>
                         <p>
                             <label>Session Number</label>
@@ -100,7 +101,7 @@
                     <button id="btnremove" type="button" class="btn btn-danger">Remove Group</button>
 
                     
-                    <input type="button" onclick="window.location.href = '/home/admin/adminoptions/adminforms/thankyouadmin/';" value="submit" class="btn btn-primary centerMe" style="margin-top: 20px; display: block;">
+                    <button type="submit" class="btn btn-primary centerMe" style="margin-top: 20px; display: block;">Submit</button>
                     
                 </form>
                 
