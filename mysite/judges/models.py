@@ -2,6 +2,15 @@ from django.db import models
 from django import forms
 
 class PerGroupForm(models.Model):
+    
+    CHOICES = (
+    (1, '1'),
+    (2, '2'),
+    (3, '3'),
+    (4, '4'),
+    (5, '5'),
+    )
+    
     sessionNum = models.IntegerField()
     roomNum = models.IntegerField()
     
@@ -9,18 +18,18 @@ class PerGroupForm(models.Model):
     group_name= models.CharField(max_length=20)
     advisor_name= models.CharField(max_length=20)
     
-    technical_accuracy= models.IntegerField()
-    creativity= models.IntegerField()
-    supporting_work= models.IntegerField()
-    design_process= models.IntegerField()
-    project_complexity= models.IntegerField()
-    completion= models.IntegerField()
-    tests= models.IntegerField()
-    response= models.IntegerField()
-    organization= models.IntegerField()
-    time= models.IntegerField()
-    visual= models.IntegerField()
-    confidence= models.IntegerField()
+    technical_accuracy= models.IntegerField(choices=CHOICES)
+    creativity= models.IntegerField(choices=CHOICES)
+    supporting_work= models.IntegerField(choices=CHOICES)
+    design_process= models.IntegerField(choices=CHOICES)
+    project_complexity= models.IntegerField(choices=CHOICES)
+    completion= models.IntegerField(choices=CHOICES)
+    tests= models.IntegerField(choices=CHOICES)
+    response= models.IntegerField(choices=CHOICES)
+    organization= models.IntegerField(choices=CHOICES)
+    time= models.IntegerField(choices=CHOICES)
+    visual= models.IntegerField(choices=CHOICES)
+    confidence= models.IntegerField(choices=CHOICES)
     
     overview= models.CharField(max_length=20)
     comments= models.CharField(max_length=100)
@@ -29,20 +38,29 @@ class PerGroupForm(models.Model):
         return true;
     
 class PerSessionForm(models.Model):
+    
+    CHOICES = (
+    (1, '1'),
+    (2, '2'),
+    (3, '3'),
+    (4, '4'),
+    (5, '5'),
+    )
+    
     discipline = forms.CharField(max_length=20)
     
-    q1= models.IntegerField()
-    q2= models.IntegerField()
-    q3= models.IntegerField()
-    q4= models.IntegerField()
-    q5= models.IntegerField()
-    q6= models.IntegerField()
-    q7= models.IntegerField()
-    q8= models.IntegerField()
-    q9= models.IntegerField()
-    q10= models.IntegerField()
-    q11= models.IntegerField()
-    q12= models.IntegerField()
+    q1= models.IntegerField(choices=CHOICES)
+    q2= models.IntegerField(choices=CHOICES)
+    q3= models.IntegerField(choices=CHOICES)
+    q4= models.IntegerField(choices=CHOICES)
+    q5= models.IntegerField(choices=CHOICES)
+    q6= models.IntegerField(choices=CHOICES)
+    q7= models.IntegerField(choices=CHOICES)
+    q8= models.IntegerField(choices=CHOICES)
+    q9= models.IntegerField(choices=CHOICES)
+    q10= models.IntegerField(choices=CHOICES)
+    q11= models.IntegerField(choices=CHOICES)
+    q12= models.IntegerField(choices=CHOICES)
     
     comments= models.CharField(max_length=100)
     
