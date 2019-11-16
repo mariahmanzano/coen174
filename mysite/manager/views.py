@@ -19,6 +19,7 @@ def thankyouadmin(request):
     return render(request, 'thankyouadmin.html')
 
 def editsession(request):
+	session_list = NewSessionForm.objects.order_by('sessionNum')[:5]
 	return render(request, 'editsession.html')
     
 from django.http import HttpResponseRedirect
