@@ -17,6 +17,9 @@ def sendscores(request):
     
 def thankyouadmin(request):
     return render(request, 'thankyouadmin.html')
+
+def editsession(request):
+	return render(request, 'editsession.html')
     
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -39,11 +42,11 @@ def add_session(request):
         mysession.advisor_name= request.POST['advisor']
 
         # check whether it's valid:
-        if mysession.is_valid():
+		# if mysession.is_valid():
             
-            mysession.save()
-            # redirect to a new URL:
-            return HttpResponseRedirect('/thankyouadmin/')
+        mysession.save()
+        # redirect to a new URL:
+        return HttpResponseRedirect('/home/admin/adminoptions/adminforms/thankyouadmin/')
 
     # if a GET (or any other method) we'll create a blank form
     else:

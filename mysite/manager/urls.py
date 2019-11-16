@@ -27,12 +27,13 @@ urlpatterns = [
 	path('adminoptions/sendscores/', views.sendscores, name='sendscores'),
 	# Path to Admin Forms
 	path('adminoptions/adminforms/', views.add_session, name='adminforms'),
-	# Path to edit session
-	path('adminoptions/editsession/', views.editsession, name='editsession'),
 	
 	# Path to add a new session
    	path('add_session/', views.add_session, name='addsession'),
 	
+	# Path to edit a session
+	path('adminoptions/editsession/', views.editsession, name='editsession'),
+
 	# Path to Thank You Admin
 	path('adminoptions/sendscores/thankyouadmin/', views.thankyouadmin, name='thankyouadmin'),
 	path('adminoptions/adminforms/thankyouadmin/', views.thankyouadmin, name='thankyouadmin'),
