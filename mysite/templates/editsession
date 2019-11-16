@@ -52,58 +52,32 @@
             <div class="container" style="position: relative;">
                 <h1 style="text-align: center; margin-top: 30px; margin-bottom: 30px;">Edit a Session</h1>
 		    
-                <form method="POST" action="/home/admin/adminoptions/adminforms/" style="text-align: center;">
-					{% csrf_token %}
-					<fieldset>
-                        <legend>Session Information</legend>
-                        <p>
-                            <label>Session Number</label>
-                            <input type="text" id="sessionNum" name="sessionNum" required>
-                        </p>
-                        <p>
-                            <label>Room Number</label>
-                            <input type="text" id="roomNum" name="roomNum" required>
-                        </p>
-                    </fieldset>
-                    
-                    
-                <!--add a group -->
-                    <h2 style="text-align: center; margin-top: 30px; margin-bottom: 30px;">Add Groups to Session</h2>
-                    
-                    <div class="row justify-content-center" id="grouprow">
-                        <div class="col-4" id="groupcol">
-
-                            <div class="form-group" id="groupcopy">
-
-                                <legend>Group Information</legend>
-
-                                <p>
-                                    <label>Project Title</label>
-                                    <input type="text" id="project" name="project">
-                                </p>
-
-                                <p>
-                                    <label>Group Members</label>
-                                    <input type="text" id="group" name="group"><br/>
-                                </p>
-
-                                <p>
-                                    <label>Group Advisor</label>
-                                    <input type="text" id="advisor" name="advisor"><br/>
-                                </p>
- 
-                            </div>
-                            
-                        </div>
-                    </div>
-                    
-                    <button id="btncopy" type="button" class="btn btn-primary">Add Group</button>
-                    <button id="btnremove" type="button" class="btn btn-danger">Remove Group</button>
-
-                    
-                    <button type="submit" class="btn btn-primary centerMe" style="margin-top: 20px; display: block;">Submit</button>
-                    
-                </form>
+                {% if session_list %}
+		<table>
+		    <head>
+			<th>
+			    <td>Session Number</td>
+			    <td>Room Number</td>
+			    <td>Session Id</td>
+			    <td> </td>
+			    <td> </td>
+			</th>
+		    </head>
+		    {% for session in session_list %}
+		    <tr>
+			<td>   {{ session.sessionNum }} </td>
+			<td>  {{ session.roomNum }}</td>
+			<td>   {{ session.id }}</td>
+			<td>   
+			</td>
+			<td>
+			</td>
+		    </tr>
+		    {% endfor %}
+		</table>
+		{% else %}
+		    <p>No sessions are available.</p>
+		{% endif %}
                 
             </div>
         </section>
