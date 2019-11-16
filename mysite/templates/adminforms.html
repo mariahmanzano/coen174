@@ -52,7 +52,7 @@
             <div class="container" style="position: relative;">
                 <h1 style="text-align: center; margin-top: 30px; margin-bottom: 30px;">Create a Session</h1>
 		    
-                <form method="POST" action="/home/admin/adminoptions/adminforms/" style="text-align: center;">
+                <form method="POST" action="{% url 'add_session' %}" style="text-align: center;">
 					{% csrf_token %}
 					<fieldset>
                         <legend>Session Information</legend>
