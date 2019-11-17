@@ -20,7 +20,7 @@ def thankyouadmin(request):
 
 def editsession(request):
 	session_list = NewSessionForm.objects.order_by('sessionNum')[:5]
-	return render(request, 'editsession.html')
+	return render(request, 'editsession.html', {'session_list': session_list} )
     
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
