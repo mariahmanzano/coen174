@@ -47,43 +47,47 @@
             </div>
         </section>
 
+
         <section>
 
             <div class="container" style="position: relative;">
-                <h1 style="text-align: center; margin-top: 30px; margin-bottom: 30px;">Manage Sessions</h1>
+                <h1 style="text-align: center; margin-top: 30px; margin-bottom: 30px;">Manage Groups</h1>
 
-                {% if session_list %}
-		<table class="table table-bordered">
-		    <thead class="table-active">
-                <tr>
+                {% if group_list %}
+        		<table class="table table-bordered">
+        		    <thead class="table-active">
+        			<tr>
         			    <td>Session Number</td>
-        			    <td>Room Number</td>
-        			    <td>Session Id</td>
+                        <td>Project Name</td>
+        			    <td>Group Name</td>
+                        <td>Advisor Name</td>
+        			    <td>Group Id</td>
         			    <td>Edit</td>
         			    <td>Delete </td>
-                        <td>Groups </td>
-                </tr>
-		    </thead>
-        		    {% for session in session_list %}
-        		    <tr>
-        			<td>   {{ session.sessionNum }} </td>
-        			<td>  {{ session.roomNum }}</td>
-        			<td>   {{ session.id }}</td>
-        			<td><a href="{% url 'editasession' session.id %}">Edit</a></td>
-        			<td><a href="{% url 'deletesession' session.id %}">Delete</a></td>
-                    <td><a href="{% url 'showsession' session.id %}">Groups</a></td>
-        		    </tr>
+        			</tr>
+        		    </thead>
+        		    {% for group in group_list %}
+                    {% if group.session.id == session.id %}
+            		    <tr>
+                        <td>   {{ group.session.sessionNum }} </td>
+            			<td>   {{ group.project_name }} </td>
+            			<td>  {{ group.group_name }}</td>
+                        <td>  {{ group.advisor_name }}</td>
+            			<td>   {{ group.id }}</td>
+                        <td><a href="{% url 'editgroup' group.id %}">Edit</a></td>
+                        <td><a href="{% url 'deletegroup' group.id %}">Delete</a></td>
+            		    </tr>
+                    {% endif %}
         		    {% endfor %}
         		</table>
         		{% else %}
-        		    <p>No sessions are available.</p>
+        		    <p>No groups are available.</p>
         		{% endif %}
 
-				<p style="text-align: center"><a href="{% url 'adminforms' %}" class="btn btn-primary px-4 py-3"> Create a Session</a></p>
-
+                <p style="text-align: center"><a href="{% url 'addgroupform' %}" class="btn btn-primary px-4 py-3">
+                    <i class="ion-ios-arrow-dropright-circle mr-2"></i>Create a Group</a></p>
             </div>
         </section>
-
 
     <!-- - - - - -end- - - - -  -->
 

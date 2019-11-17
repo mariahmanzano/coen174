@@ -46,16 +46,17 @@
                 <h1 style="text-align: center; margin-top: 30px; margin-bottom: 30px;">Project Evaluation Form</h1>
 		    
                 <form method="post" action="{% url 'pergroup' %}" style="text-align: center;">
+                    {% csrf_token %}
                     <fieldset>
                         <legend><h4>Session Information</h4></legend>
                         <p>
                             <label>Session Number</label>
                             <select id="sessionNum" required>
-                                <option value = "{{form.sessionNum.value}}"></option>
+                                <option value = "{{session.sessionNum}}"></option>
                             </select>
                             <label>Room Number</label>
                             <select id="roomNum" required>
-                                <option value = "{{form.roomNum.value}}"></option>
+                                <option value = "{{session.roomNum}}"></option>
                             </select>
                         </p>
                     </fieldset>
@@ -64,15 +65,15 @@
                         <p>
                             <label>Project Title</label>
                             <select id="project" required>
-                                <option value = "{{form.project_name}}"></option>
+                                <option value = "{{group.project_name}}"></option>
                             </select>
                             <label>Group Members</label>
                             <select id="group" required>
-                                <option value = "{{form.group_name}}"></option>
+                                <option value = "{{group.group_name}}"></option>
                             </select>
                             <label>Advisors</label>
                             <select id="advisor" required>
-                                <option value = "{{form.advisor_name}}"></option>
+                                <option value = "{{group.advisor_name}}"></option>
                             </select>
                         </p>
                     </fieldset>

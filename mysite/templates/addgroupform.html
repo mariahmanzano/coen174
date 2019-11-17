@@ -50,40 +50,40 @@
         <section>
 
             <div class="container" style="position: relative;">
-                <h1 style="text-align: center; margin-top: 30px; margin-bottom: 30px;">Manage Sessions</h1>
+                <h1 style="text-align: center; margin-top: 30px; margin-bottom: 30px;">Add a Group</h1>
 
-                {% if session_list %}
-		<table class="table table-bordered">
-		    <thead class="table-active">
-                <tr>
-        			    <td>Session Number</td>
-        			    <td>Room Number</td>
-        			    <td>Session Id</td>
-        			    <td>Edit</td>
-        			    <td>Delete </td>
-                        <td>Groups </td>
-                </tr>
-		    </thead>
-        		    {% for session in session_list %}
-        		    <tr>
-        			<td>   {{ session.sessionNum }} </td>
-        			<td>  {{ session.roomNum }}</td>
-        			<td>   {{ session.id }}</td>
-        			<td><a href="{% url 'editasession' session.id %}">Edit</a></td>
-        			<td><a href="{% url 'deletesession' session.id %}">Delete</a></td>
-                    <td><a href="{% url 'showsession' session.id %}">Groups</a></td>
-        		    </tr>
-        		    {% endfor %}
-        		</table>
-        		{% else %}
-        		    <p>No sessions are available.</p>
-        		{% endif %}
+                <form method="POST" action="{% url 'addgroup' %}" style="text-align: center;">
+					{% csrf_token %}
+					<fieldset>
+                        <legend>Group Information</legend>
+                        <p>
+                            <label>Project Title</label>
+                            <input type="text" id="project"   name="project">
+                        </p>
 
-				<p style="text-align: center"><a href="{% url 'adminforms' %}" class="btn btn-primary px-4 py-3"> Create a Session</a></p>
+                        <p>
+                            <label>Group Members</label>
+                            <input type="text" id="group"   name="group"><br/>
+                        </p>
+
+                        <p>
+                            <label>Group Advisor</label>
+                            <input type="text" id="advisor"    name="advisor"><br/>
+                        </p>
+
+                        <p>
+                            <label>Session ID</label>
+                            <input type="text" id="session_id"    name="session_id"><br/>
+                        </p>
+
+                    </fieldset>
+
+                    <button type="submit" class="btn btn-primary centerMe" style="margin-top: 20px; display: block;">Submit</button>
+
+                </form>
 
             </div>
         </section>
-
 
     <!-- - - - - -end- - - - -  -->
 
@@ -95,6 +95,7 @@
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
         Copyright &copy;<script>
         document.write(new Date().getFullYear());
+
         </script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
         </p>
