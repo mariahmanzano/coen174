@@ -54,3 +54,12 @@ def add_session(request):
         mysession = NewSessionForm()
         
     return render(request, 'adminforms.html')
+
+
+from django.core.mail import EmailMessage
+
+def send_email(request):
+	msg = EmailMessage('Request Callback', 'Here is the message.',
+			to=['andresc98@gmail.com'])
+	msg.send()
+	return HttpResponseRedirect('/')
