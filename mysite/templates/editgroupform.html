@@ -53,8 +53,8 @@
                 <h1 style="text-align: center; margin-top: 30px; margin-bottom: 30px;">Update a Group</h1>
 
                 <form method="POST" action="{% url 'updategroup' group.id %}" style="text-align: center;">
-					{% csrf_token %}
-					<fieldset>
+			{% csrf_token %}
+			<fieldset>
                         <legend>Group Information</legend>
                         <p>
                             <label>Project Title</label>
@@ -70,6 +70,18 @@
                             <label>Group Advisor</label>
                             <input type="text" id="advisor"  value={{group.advisor_name}} name="advisor"><br/>
                         </p>
+						
+			<p>
+				<label>Session Number</label>
+
+			  	{% if session_list %}
+				     <select name="sessionId">
+				      {% for session in session_list %}
+					       <option value="{{ session.id }}">{{ session.sessionNum }}</option>
+				       {% endfor %}
+				     </select>
+			    	{% endif %}
+			</p>
 
                     </fieldset>
 
@@ -103,21 +115,6 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-    <!-- new and remove group-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script>
-       $(document).ready(function () {
-        $("#btncopy").on("click", function () {
-            $("#groupcol")
-                .clone()
-                .appendTo("#grouprow");
-        });
-
-        $("#btnremove").on("click", function () {
-            $("#groupcol").remove()
-        });
-    });
-    </script>
 
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
