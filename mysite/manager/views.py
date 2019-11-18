@@ -73,17 +73,18 @@ def add_group(request):
 
 def edit_group(request, group_id):
     mygroup = get_object_or_404(Group, pk=group_id)
-    return render(request, 'editgroupform.html', {'group': mygroup})
+    session_list = NewSessionForm.objects.order_by('sessionNum')
+    return render(request, 'editgroupform.html', {'group': mygroup, 'session_list': session_list})
 
 def update_group(request, group_id):
     mygroup = get_object_or_404(Group, pk=group_id)
     mygroup.project_name= request.POST['project']
     mygroup.group_name = request.POST['group']
     mygroup.advisor_name = request.POST['advisor']
-
+    session = get_object_or_404(NewSessionForm, pk=request.POST['sessionId'])
+    mygroup.session = session
     mygroup.save()
 
-    session = get_object_or_404(NewSessionForm, pk=mygroup.session.id)
     group_list = Group.objects.order_by('project_name')
     return render(request, 'showsessiondetail.html', {'session': session, 'group_list': group_list} )
 
