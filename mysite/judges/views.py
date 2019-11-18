@@ -93,13 +93,13 @@ def persession(request):
         mysession.comments= request.POST['comments']
         
         # check whether it's valid:
-        # if mysession.is_valid():
-        
+		# if mysession.is_valid():
+
         mysession.save()
         # redirect to a new URL:
         return HttpResponseRedirect('/thankyou/')
 
     # if a GET (or any other method) we'll create a blank form
-    # else:
-            # mysession = PerSessionForm()
+    else:
+            mysession = PerSessionForm()
     return render(request, 'perSession.html')
