@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SCU Senior Design Conference</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% load static %}
+	<link rel='stylesheet' href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+	<link rel='stylesheet' href="{% static 'css/animate.css' %}">
+	<link rel='stylesheet' href="{% static 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap' %}">
+	<link rel='stylesheet' href="{% static 'https://fonts.googleapis.com/css?family=Prata&display=swap' %}">
+	<link rel='stylesheet' href="{% static 'css/owl.carousel.min.css' %}">
+	<link rel='stylesheet' href="{% static 'css/owl.theme.default.min.css' %}">
+	<link rel='stylesheet' href="{% static 'css/magnific-popup.css' %}">
+	<link rel='stylesheet' href="{% static 'css/ionicons.min.css' %}">
+	<link rel='stylesheet' href="{% static 'css/bootstrap-datetimepicker.min.css' %}">
+	<link rel='stylesheet' href="{% static 'css/nouislider.css' %}">
+	<link rel='stylesheet' href="{% static 'css/aos.css' %}">
+	<link rel='stylesheet' href="{% static 'css/flaticon.css' %}">
+	<link rel='stylesheet' href="{% static 'css/icomoon.css' %}">
+	<link rel='stylesheet' href="{% static 'css/style.css' %}">
+
+
+  </head>
+
+<body>
+
+  <div class="main-section">
+
+  	<div class="main-section">
+
+        <section class="hero-wrap">
+            <div class="container">
+
+                <div class="row descriptionalign-items-center justify-content-center">
+                    <a href="/home/">
+                        <img class="logoSmall" src="{% static 'images/scuLogo.png' %}">
+                    </a>
+                    <div class="col-md-8 text-center">
+                        <div class="text textSmall">
+                            <h2 style="color: #fff;">School of Engineering</h2>
+                            <h4 class="mb-5">Senior Design Conference 2020</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+
+            <div class="container" style="position: relative;">
+                <h1 style="text-align: center; margin-top: 30px; margin-bottom: 30px;">Update a Session</h1>
+
+                <form method="POST" action="{% url 'updatesession' session.id %}" style="text-align: center;">
+					{% csrf_token %}
+					<fieldset>
+                        <legend>Session Information</legend>
+                        <p>
+                            <label>Session Number</label>
+                            <input type="text" id="sessionNum" name="sessionNum" value={{session.sessionNum}} >
+                        </p>
+                        <p>
+                            <label>Room Number</label>
+                            <input type="text" id="roomNum" name="roomNum" required value={{session.roomNum}} >>
+                        </p>
+                    </fieldset>
+
+                    <button type="submit" class="btn btn-primary centerMe" style="margin-top: 20px; display: block;">Submit</button>
+
+                </form>
+
+            </div>
+        </section>
+
+    <!-- - - - - -end- - - - -  -->
+
+
+
+	<footer class="ftco-section ftco-section-2">
+	  <div class="col-md-12 text-center">
+    	<p class="mb-0">
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        Copyright &copy;<script>
+        document.write(new Date().getFullYear());
+
+        </script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </p>
+      </div>
+	</footer>
+
+  </div>
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+    <!-- new and remove group-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script>
+       $(document).ready(function () {
+        $("#btncopy").on("click", function () {
+            $("#groupcol")
+                .clone()
+                .appendTo("#grouprow");
+        });
+
+        $("#btnremove").on("click", function () {
+            $("#groupcol").remove()
+        });
+    });
+    </script>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
+
+    <script src="{% static 'js/nouislider.min.js' %}"></script>
+    <script src="{% static 'js/moment-with-locales.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-datetimepicker.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

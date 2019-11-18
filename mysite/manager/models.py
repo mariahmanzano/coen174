@@ -1,13 +1,24 @@
 from django.db import models
-from django import forms
 
 class NewSessionForm(models.Model):
     sessionNum = models.CharField(max_length=10)
     roomNum = models.CharField(max_length=10)
-    
-    project_name= models.CharField(max_length=20)
-    group_name= models.CharField(max_length=20)
-    advisor_name= models.CharField(max_length=20)
-   
+
+    def __str__(self):
+        return self.sessionNum
+
     def is_valid():
-        return true;
+        return True;
+
+class Group (models.Model):
+    project_name= models.CharField(max_length=50)
+    group_name= models.CharField(max_length=50)
+    advisor_name= models.CharField(max_length=50)
+
+    session = models.ForeignKey(NewSessionForm, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.project_name
+
+    def is_valid():
+        return True;

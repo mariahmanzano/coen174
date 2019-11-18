@@ -4,7 +4,7 @@
     <title>SCU Senior Design Conference</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     {% load static %}
 	<link rel='stylesheet' href="{% static 'css/open-iconic-bootstrap.min.css' %}">
 	<link rel='stylesheet' href="{% static 'css/animate.css' %}">
@@ -20,19 +20,19 @@
 	<link rel='stylesheet' href="{% static 'css/flaticon.css' %}">
 	<link rel='stylesheet' href="{% static 'css/icomoon.css' %}">
 	<link rel='stylesheet' href="{% static 'css/style.css' %}">
-      
-      
+
+
   </head>
-    
-<body> 
-		
+
+<body>
+
   <div class="main-section">
-	 
+
   	<div class="main-section">
-	 
+
         <section class="hero-wrap">
             <div class="container">
-                
+
                 <div class="row descriptionalign-items-center justify-content-center">
                     <a href="/home/">
                         <img class="logoSmall" src="{% static 'images/scuLogo.png' %}">
@@ -46,13 +46,13 @@
                 </div>
             </div>
         </section>
-          
+
         <section>
-            
+
             <div class="container" style="position: relative;">
                 <h1 style="text-align: center; margin-top: 30px; margin-bottom: 30px;">Create a Session</h1>
-		    
-                <form method="POST" action="{% url 'add_session' %}" style="text-align: center;">
+
+                <form method="POST" action="{% url 'addsession' %}" style="text-align: center;">
 					{% csrf_token %}
 					<fieldset>
                         <legend>Session Information</legend>
@@ -65,51 +65,16 @@
                             <input type="text" id="roomNum" name="roomNum" required>
                         </p>
                     </fieldset>
-                    
-                    
-                <!--add a group -->
-                    <h2 style="text-align: center; margin-top: 30px; margin-bottom: 30px;">Add Groups to Session</h2>
-                    
-                    <div class="row justify-content-center" id="grouprow">
-                        <div class="col-4" id="groupcol">
 
-                            <div class="form-group" id="groupcopy">
-
-                                <legend>Group Information</legend>
-
-                                <p>
-                                    <label>Project Title</label>
-                                    <input type="text" id="project" name="project">
-                                </p>
-
-                                <p>
-                                    <label>Group Members</label>
-                                    <input type="text" id="group" name="group"><br/>
-                                </p>
-
-                                <p>
-                                    <label>Group Advisor</label>
-                                    <input type="text" id="advisor" name="advisor"><br/>
-                                </p>
- 
-                            </div>
-                            
-                        </div>
-                    </div>
-                    
-                    <button id="btncopy" type="button" class="btn btn-primary">Add Group</button>
-                    <button id="btnremove" type="button" class="btn btn-danger">Remove Group</button>
-
-                    
                     <button type="submit" class="btn btn-primary centerMe" style="margin-top: 20px; display: block;">Submit</button>
-                    
+
                 </form>
-                
+
             </div>
         </section>
 
     <!-- - - - - -end- - - - -  -->
-    
+
 
 
 	<footer class="ftco-section ftco-section-2">
@@ -130,7 +95,7 @@
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-      
+
     <!-- new and remove group-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script>
@@ -140,7 +105,7 @@
                 .clone()
                 .appendTo("#grouprow");
         });
-           
+
         $("#btnremove").on("click", function () {
             $("#groupcol").remove()
         });
@@ -162,6 +127,6 @@
     <script src="{% static 'js/moment-with-locales.min.js' %}"></script>
     <script src="{% static 'js/bootstrap-datetimepicker.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
-    
+
 </body>
 </html>

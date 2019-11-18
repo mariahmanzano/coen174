@@ -4,7 +4,7 @@
     <title>SCU Senior Design Conference</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     {% load static %}
 	<link rel='stylesheet' href="{% static 'css/open-iconic-bootstrap.min.css' %}">
 	<link rel='stylesheet' href="{% static 'css/animate.css' %}">
@@ -20,19 +20,19 @@
 	<link rel='stylesheet' href="{% static 'css/flaticon.css' %}">
 	<link rel='stylesheet' href="{% static 'css/icomoon.css' %}">
 	<link rel='stylesheet' href="{% static 'css/style.css' %}">
-      
-      
+
+
   </head>
-    
-<body> 
-		
+
+<body>
+
   <div class="main-section">
-	 
+
   	<div class="main-section">
-	 
+
         <section class="hero-wrap">
             <div class="container">
-                
+
                 <div class="row descriptionalign-items-center justify-content-center">
                     <a href="/home/">
                         <img class="logoSmall" src="{% static 'images/scuLogo.png' %}">
@@ -46,44 +46,51 @@
                 </div>
             </div>
         </section>
-          
+
+
         <section>
-            
+
             <div class="container" style="position: relative;">
-                <h1 style="text-align: center; margin-top: 30px; margin-bottom: 30px;">Edit a Session</h1>
-		    
-                {% if session_list %}
-		<table>
-		    <head>
-			<th>
-			    <td>Session Number</td>
-			    <td>Room Number</td>
-			    <td>Session Id</td>
-			    <td> </td>
-			    <td> </td>
-			</th>
-		    </head>
-		    {% for session in session_list %}
-		    <tr>
-			<td>   {{ session.sessionNum }} </td>
-			<td>  {{ session.roomNum }}</td>
-			<td>   {{ session.id }}</td>
-			<td>   
-			</td>
-			<td>
-			</td>
-		    </tr>
-		    {% endfor %}
-		</table>
-		{% else %}
-		    <p>No sessions are available.</p>
-		{% endif %}
-                
+                <h1 style="text-align: center; margin-top: 30px; margin-bottom: 30px;">Manage Groups</h1>
+
+                {% if group_list %}
+        		<table class="table table-bordered">
+        		    <thead class="table-active">
+        			<tr>
+        			    <td>Session Number</td>
+                        <td>Project Name</td>
+        			    <td>Group Name</td>
+                        <td>Advisor Name</td>
+        			    <td>Group Id</td>
+        			    <td>Edit</td>
+        			    <td>Delete </td>
+        			</tr>
+        		    </thead>
+        		    {% for group in group_list %}
+                    {% if group.session.id == session.id %}
+            		    <tr>
+                        <td>   {{ group.session.sessionNum }} </td>
+            			<td>   {{ group.project_name }} </td>
+            			<td>  {{ group.group_name }}</td>
+                        <td>  {{ group.advisor_name }}</td>
+            			<td>   {{ group.id }}</td>
+                        <td><a href="{% url 'editgroup' group.id %}">Edit</a></td>
+                        <td><a href="{% url 'deletegroup' group.id %}">Delete</a></td>
+            		    </tr>
+                    {% endif %}
+        		    {% endfor %}
+        		</table>
+        		{% else %}
+        		    <p>No groups are available.</p>
+        		{% endif %}
+
+                <p style="text-align: center"><a href="{% url 'addgroupform' %}" class="btn btn-primary px-4 py-3">
+                    <i class="ion-ios-arrow-dropright-circle mr-2"></i>Create a Group</a></p>
             </div>
         </section>
 
     <!-- - - - - -end- - - - -  -->
-    
+
 
 
 	<footer class="ftco-section ftco-section-2">
@@ -103,7 +110,7 @@
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-      
+
     <!-- new and remove group-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script>
@@ -113,7 +120,7 @@
                 .clone()
                 .appendTo("#grouprow");
         });
-           
+
         $("#btnremove").on("click", function () {
             $("#groupcol").remove()
         });
@@ -135,6 +142,6 @@
     <script src="{% static 'js/moment-with-locales.min.js' %}"></script>
     <script src="{% static 'js/bootstrap-datetimepicker.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
-    
+
 </body>
 </html>
