@@ -35,7 +35,7 @@ class PerGroupForm(models.Model):
     comments= models.CharField(max_length=100)
     
     def is_valid():
-        return true;
+        return True;
     
 class PerSessionForm(models.Model):
     
@@ -65,4 +65,4 @@ class PerSessionForm(models.Model):
     comments= models.CharField(max_length=100)
     
     def is_valid():
-        return true;
+        return True;
