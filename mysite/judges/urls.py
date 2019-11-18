@@ -28,6 +28,7 @@ urlpatterns = [
 	path('judgeforms/persession/', views.persession, name='persession'),
 	# Path to Per Group Forms
 	path('judgeforms/pergroup/', views.pergroup, name='pergroup'),
+    
 	# Path to Thank You Judges
 	path('judgeforms/persession/thankyou/', views.thankyou, name='thankyou'),
 	path('judgeforms/pergroup/thankyou/', views.thankyou, name='thankyou')

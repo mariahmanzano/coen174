@@ -12,9 +12,6 @@ def judgeforms(request):
 def persession(request):
     return render(request, 'perSession.html')
 
-def pergroup(request):
-    return render(request, 'perGroup.html')
-
 def thankyou(request):
     return render(request, 'thankyou.html')
 
@@ -22,6 +19,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from judges.models import PerGroupForm
+from manager.models import NewSessionForm
 
 def pergroup(request):
     # if this is a POST request we need to process the form data
@@ -30,12 +28,16 @@ def pergroup(request):
         mygroup = PerGroupForm()
         
         # process the data in form.cleaned_data as required
-        mygroup.sessionNum = request.POST['sessionNum']
-        mygroup.roomNum = request.POST['roomNum']
+        mygroup.sessionNum = request.POST.get('sessionNum', False)
+        mygroup.roomNum = request.POST.get('roomNum', False)
 
-        mygroup.project_name= request.POST['project']
-        mygroup.group_name= request.POST['group']
-        mygroup.advisor_name= request.POST['advisor']
+        mygroup.project_name= request.POST.get('project', False)
+        mygroup.group_name= request.POST.get('group', False)
+        mygroup.advisor_name= request.POST.get('advisor', False)
+        
+        # mygroup.project_name= request.POST['project']
+        # mygroup.group_name= request.POST['group']
+        # mygroup.advisor_name= request.POST['advisor']
 
         mygroup.technical_accuracy= request.POST['design1']
         mygroup.creativity= request.POST['design2']
@@ -54,17 +56,18 @@ def pergroup(request):
         mygroup.comments= request.POST['comments']
         
         # check whether it's valid:
-        if mygroup.is_valid():
-
-            mygroup.save()
-            # redirect to a new URL:
-            return HttpResponseRedirect('/home/judge/judgeforms/persession/thankyou/')
+        # if mygroup.is_valid():
+        mygroup.save()
+        # redirect to a new URL:
+        return HttpResponseRedirect('/home/judge/judgeforms/persession/thankyou/')
 
     # if a GET (or any other method) we'll create a blank form
     else:
         mygroup = PerGroupForm()
+    
+    session_list = NewSessionForm.objects.order_by('sessionNum')
         
-    return render(request, 'perGroup.html')
+    return render(request, 'perGroup.html', {'session_list': session_list})
 
 
 from judges.models import PerSessionForm

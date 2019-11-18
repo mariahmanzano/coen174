@@ -147,21 +147,23 @@ def display_results(request):
     
     # Project Evaluation Form
     
-    eval_forms = PerGroupForm.objects.all
+    eval_forms = PerGroupForm.objects.all()
 
     # Average
     
     eval_sum = 0
     eval_total = 0
+    eval_average = []
     for form in eval_forms:
         eval_sum += (form.technical_accuracy + form.creativity + form.supporting_work + form.design_process + form.project_complexity + form.completion + form.tests + form.response + form.organization + form.time + form.visual + form.confidence)
-        
+        eval_total += 1
+        eval_average.append(eval_sum / eval_total)
     
     all_results = {
         'average': average,
-        'sessionNum': sessionNum,
-        'groupNum': groupNum,
-        'avgScore': avgScore
+        #'sessionNum': sessionNum,
+        #'groupNum': groupNum,
+        'eval_average': eval_average
         
     }
     

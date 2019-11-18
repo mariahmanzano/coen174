@@ -45,18 +45,20 @@
             <div class="container" style="position: relative;">
                 <h1 style="text-align: center; margin-top: 30px; margin-bottom: 30px;">Project Evaluation Form</h1>
 		    
-                <form method="post" action="{% url 'pergroup' %}" style="text-align: center;">
+                <form method="POST" action="{% url 'pergroup' %}" style="text-align: center;">
                     {% csrf_token %}
-                    <fieldset>
+					{% if session_list %}
+					{% for session in session_list %}
+					<fieldset>
                         <legend><h4>Session Information</h4></legend>
                         <p>
                             <label>Session Number</label>
-                            <select id="sessionNum" required>
-                                <option value = "{{session.sessionNum}}"></option>
+                            <select id="sessionNum">
+                                <option value = "{{session.sessionNum}}">1</option>
                             </select>
                             <label>Room Number</label>
-                            <select id="roomNum" required>
-                                <option value = "{{session.roomNum}}"></option>
+                            <select id="roomNum">
+                                <option value = "{{session.roomNum}}">123</option>
                             </select>
                         </p>
                     </fieldset>
@@ -64,20 +66,21 @@
                         <legend><h4>Group Information</h4></legend>
                         <p>
                             <label>Project Title</label>
-                            <select id="project" required>
-                                <option value = "{{group.project_name}}"></option>
+                            <select id="project">
+                                <option value = "{{group.project_name}}">asd</option>
                             </select>
                             <label>Group Members</label>
-                            <select id="group" required>
-                                <option value = "{{group.group_name}}"></option>
+                            <select id="group">
+                                <option value = "{{group.group_name}}">asd</option>
                             </select>
                             <label>Advisors</label>
-                            <select id="advisor" required>
-                                <option value = "{{group.advisor_name}}"></option>
+                            <select id="advisor">
+                                <option value = "{{group.advisor_name}}">rty</option>
                             </select>
                         </p>
                     </fieldset>
-
+					{% endfor %}
+					{% endif %}
                     <hr>
 
                     <h4>Instructions</h4>
