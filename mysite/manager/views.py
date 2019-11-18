@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from manager.models import NewSessionForm, Group
 from django.core.mail import EmailMessage
+from judges.models import PerSessionForm, PerGroupForm
 
 
 # Create your views here.
@@ -25,6 +26,9 @@ def sendscores(request):
 
 def thankyouadmin(request):
     return render(request, 'thankyouadmin.html')
+    
+def results(request):
+    return render(request, 'results.html')
 
 def edit_session(request, session_id):
     session = get_object_or_404(NewSessionForm, pk=session_id)
@@ -126,3 +130,12 @@ def send_email(request):
     msg.send()
     return HttpResponseRedirect('/')
 
+def display_results(request):
+    all_forms = PerSessionForm.objects.all()
+    session_sum = 0
+    total = 0
+    for form in all_forms:
+        session_sum += (form.q1 + form.q2 + form.q3 + form.q4 + form.q5 + form.q6 + form.q7 + form.q8 + form.q9 + form.q10 + form.q11 + form.q12)
+        total += 1
+    average = session_sum / total
+    return render(request, 'results.html', {'average': average})

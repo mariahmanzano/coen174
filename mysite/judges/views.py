@@ -58,7 +58,7 @@ def pergroup(request):
 
             mygroup.save()
             # redirect to a new URL:
-            return HttpResponseRedirect('/thankyou/')
+            return HttpResponseRedirect('/home/judge/judgeforms/persession/thankyou/')
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -97,7 +97,7 @@ def persession(request):
 
         mysession.save()
         # redirect to a new URL:
-        return HttpResponseRedirect('/thankyou/')
+        return HttpResponseRedirect('/home/judge/judgeforms/persession/thankyou/')
 
     # if a GET (or any other method) we'll create a blank form
     else:

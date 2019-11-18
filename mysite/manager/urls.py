@@ -62,5 +62,7 @@ urlpatterns = [
 	# Path to Thank You Admin
 	path('adminoptions/sendscores/thankyouadmin/', views.thankyouadmin, name='thankyouadmin'),
 	path('adminoptions/adminforms/thankyouadmin/', views.thankyouadmin, name='thankyouadmin'),
-
+ 
+    # Path to View Results
+    path('results/', views.display_results, name='results'),
 ]
