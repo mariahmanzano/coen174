@@ -17,7 +17,8 @@ def persession(request):
 
 def pergroup(request):
         session_list = NewSessionForm.objects.order_by('sessionNum')
-        return render(request, 'perGroup.html', {'session_list': session_list})
+        group_list = Group.objects.order_by('project_name')
+        return render(request, 'perGroup.html', {'session_list': session_list, 'group_list': group_list})
 
 def thankyou(request):
     return render(request, 'thankyou.html')
