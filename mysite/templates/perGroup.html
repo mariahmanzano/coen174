@@ -47,40 +47,34 @@
 		    
                 <form method="POST" action="{% url 'pergroup' %}" style="text-align: center;">
                     {% csrf_token %}
-					{% if session_list %}
-					{% for session in session_list %}
-					<fieldset>
+                    <fieldset>
                         <legend><h4>Session Information</h4></legend>
                         <p>
-                            <label>Session Number</label>
-                            <select id="sessionNum">
-                                <option value = "{{session.sessionNum}}">1</option>
-                            </select>
-                            <label>Room Number</label>
-                            <select id="roomNum">
-                                <option value = "{{session.roomNum}}">123</option>
-                            </select>
+                            <label>Session Number:</label>
+                            {% if session_list %}
+                                <select name="sessionId">
+                                {% for session in session_list %}
+                                        <option value="{{ session.id }}">{{ session.sessionNum }}</option>
+                                {% endfor %}
+                                </select>
+                            {% endif %}
                         </p>
                     </fieldset>
+
                     <fieldset>
                         <legend><h4>Group Information</h4></legend>
                         <p>
-                            <label>Project Title</label>
-                            <select id="project">
-                                <option value = "{{group.project_name}}">asd</option>
-                            </select>
-                            <label>Group Members</label>
-                            <select id="group">
-                                <option value = "{{group.group_name}}">asd</option>
-                            </select>
-                            <label>Advisors</label>
-                            <select id="advisor">
-                                <option value = "{{group.advisor_name}}">rty</option>
-                            </select>
+                            <label>Project Title:</label>
+                            {% if group_list %}
+                                <select name="group.project_name">
+                                {% for group in group_list %}
+                                        <option value="{{ group.id }}">{{ group.project_name }}</option>
+                                {% endfor %}
+                                </select>
+                            {% endif %}
                         </p>
                     </fieldset>
-					{% endfor %}
-					{% endif %}
+			
                     <hr>
 
                     <h4>Instructions</h4>
