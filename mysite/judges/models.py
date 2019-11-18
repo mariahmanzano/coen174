@@ -47,7 +47,7 @@ class PerSessionForm(models.Model):
     (5, '5'),
     )
     
-    discipline = forms.CharField(max_length=20)
+    dis1 = forms.CharField(max_length=20)
     
     q1= models.IntegerField(choices=CHOICES)
     q2= models.IntegerField(choices=CHOICES)

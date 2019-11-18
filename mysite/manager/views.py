@@ -3,6 +3,8 @@ from django import forms
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from manager.models import NewSessionForm, Group
+from django.core.mail import EmailMessage
+
 
 # Create your views here.
 
@@ -50,7 +52,7 @@ def show_session(request, session_id):
     return render(request, 'showsessiondetail.html', {'session': mysession, 'group_list': group_list} )
 
 def add_group(request):
-
+ 
     # create a Group instance and populate it with data from the request form:
     mygroup = Group()
 
@@ -99,15 +101,6 @@ def editsession(request):
 
 def add_session(request):
 
-from django.core.mail import EmailMessage
-
-def send_email(request):
-	msg = EmailMessage('Request Callback', 'Here is the message.',
-			to=['andresc98@gmail.com'])
-	msg.send()
-	return HttpResponseRedirect('/')
-
-
     mysession = NewSessionForm()
 
      # process the data in form.cleaned_data as required
@@ -122,3 +115,14 @@ def send_email(request):
 
     session_list = NewSessionForm.objects.order_by('sessionNum')
     return render(request, 'editsession.html', {'session_list': session_list})
+    
+def send_email(request):
+    msg = EmailMessage(
+		'Request Callback', 
+		'Here is the message.',
+		DEFAULT_FROM_EMAIL,
+		['andresc98@gmail.com'],
+	)
+    msg.send()
+    return HttpResponseRedirect('/')
+

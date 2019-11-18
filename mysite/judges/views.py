@@ -23,7 +23,7 @@ from django.shortcuts import render
 
 from judges.models import PerGroupForm
 
-def get_pergroup(request):
+def pergroup(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -69,7 +69,7 @@ def get_pergroup(request):
 
 from judges.models import PerSessionForm
 
-def get_persession(request):
+def persession(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -93,13 +93,13 @@ def get_persession(request):
         mysession.comments= request.POST['comments']
         
         # check whether it's valid:
-        if mysession.is_valid():
-
-            mysession.save()
-            # redirect to a new URL:
-            return HttpResponseRedirect('/thankyou/')
+        # if mysession.is_valid():
+        
+        mysession.save()
+        # redirect to a new URL:
+        return HttpResponseRedirect('/thankyou/')
 
     # if a GET (or any other method) we'll create a blank form
-    else:
-            mysession = PerSessionForm()
+    # else:
+            # mysession = PerSessionForm()
     return render(request, 'perSession.html')
