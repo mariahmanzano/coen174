@@ -24,8 +24,10 @@ urlpatterns = [
 	path('', views.judge, name='judge'),
 	# Path to Judge Forms
 	path('judgeforms/', views.judgeforms, name='judgeforms'),
+	
 	# Path to Per Session Forms
-	path('judgeforms/persession/', views.persession, name='persession'),
+	path('judgeforms/persession/', views.get_persession, name='getpersession'),
+	path('judgeforms/per_session/', views.persession, name='persession'),
 	
 	# Path to Per Group Forms
 	path('judgeforms/pergroup/', views.get_pergroup, name='getpergroup'),
