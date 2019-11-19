@@ -35,10 +35,9 @@ def get_pergroup(request):
         # create a form instance and populate it with data from the request:
         mygroup = PerGroupForm()
         
-        # process the data in form.cleaned_data as required
-        mygroup.sessionNum = request.POST['sessionNum']
-        mygroup.roomNum = request.POST['roomNum']
-        mygroup.project_name= request.POST['project']
+	# process the data in form.cleaned_data as required
+        mygroup.sessionNum = request.POST['sessionId']
+        mygroup.project_name= request.POST['group.project_name']
 	
         #mygroup.group_name= request.POST['group']
         #mygroup.advisor_name= request.POST['advisor']
