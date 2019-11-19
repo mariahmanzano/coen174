@@ -77,15 +77,22 @@
 						</tr>
 					</thead>
 					<tr>
+						{% if session_list %}
+							{% for session in session_list %}
+							<td> {{ session.sessionNum }} </td>
+							{% endfor %}
+                        			{% endif %}
+
+                        			{% if group_list %}
+							{% for group in group_list %}
+							<td> {{ group.project_name }} </td>
+							{% endfor %}
+                        			{% endif %}
+
 						{% for eval in eval_average %}
 						<td>    {{ eval_average.0 }}</td>
 						{% endfor %}
-						
-						{% if session_list %}
-							{% for session in session_list %}
-							<td value="{{ session.id }}">{{ session.sessionNum }}</td>
-							{% endfor %}
-						{% endif %}
+
 					</tr>
 				</table>
 					
