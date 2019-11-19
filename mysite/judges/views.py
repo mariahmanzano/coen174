@@ -67,8 +67,7 @@ def get_pergroup(request):
 
     mygroup.save()
     # redirect to a new URL:
-    return HttpResponseRedirect('/home/judge/judgeforms/pergroup/thankyou/')
-    # return render(request, 'perGroup.html')
+    return render(request, 'thankyou.html')
 
 
 from judges.models import PerSessionForm
@@ -101,5 +100,4 @@ def get_persession(request):
 
         mysession.save()
         # redirect to a new URL:
-        return HttpResponseRedirect('/home/judge/judgeforms/pergroup/thankyou/')
-        return render(request, 'perSession.html')
+        return render(request, 'thankyou.html')
