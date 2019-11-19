@@ -31,44 +31,44 @@ from manager.models import NewSessionForm
 
 def get_pergroup(request):
     # if this is a POST request we need to process the form data
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        mygroup = PerGroupForm()
+    #if request.method == 'POST':
+    # create a form instance and populate it with data from the request:
+    mygroup = PerGroupForm()
         
-        # process the data in form.cleaned_data as required
-        mygroup.sessionNum = request.POST['sessionNum']
-        mygroup.roomNum = request.POST['roomNum']
-        mygroup.project_name= request.POST['project']
+    # process the data in form.cleaned_data as required
+    mygroup.sessionNum = request.POST.get('sessionNum', False)
+    mygroup.roomNum = request.POST.get('roomNum', False)
+    mygroup.project_name= request.POST.get('project', False)
 	
-        mygroup.sessionNum= request.POST['sessionId']
-        mygrou.project_name= request.POST['group.project_name']
-        #mygroup.group_name= request.POST['group']
-        #mygroup.advisor_name= request.POST['advisor']
+    mygroup.sessionNum= request.POST['sessionId']
+    mygroup.project_name= request.POST['group.project_name']
+    #mygroup.group_name= request.POST['group']
+    #mygroup.advisor_name= request.POST['advisor']
 
-        mygroup.technical_accuracy= request.POST['design1']
-        mygroup.creativity= request.POST['design2']
-        mygroup.supporting_work= request.POST['design3']
-        mygroup.design_process= request.POST['design4']
-        mygroup.project_complexity= request.POST['design5']
-        mygroup.completion= request.POST['design6']
-        mygroup.tests= request.POST['design7']
-        mygroup.response= request.POST['design8']
-        mygroup.organization= request.POST['pres1']
-        mygroup.time= request.POST['pres2']
-        mygroup.visual= request.POST['pres3']
-        mygroup.confidence= request.POST['pres4']
+    mygroup.technical_accuracy= request.POST['design1']
+    mygroup.creativity= request.POST['design2']
+    mygroup.supporting_work= request.POST['design3']
+    mygroup.design_process= request.POST['design4']
+    mygroup.project_complexity= request.POST['design5']
+    mygroup.completion= request.POST['design6']
+    mygroup.tests= request.POST['design7']
+    mygroup.response= request.POST['design8']
+    mygroup.organization= request.POST['pres1']
+    mygroup.time= request.POST['pres2']
+    mygroup.visual= request.POST['pres3']
+    mygroup.confidence= request.POST['pres4']
 
-        mygroup.overview= request.POST['topics']
-        mygroup.comments= request.POST['comments']
+    mygroup.overview= request.POST['topics']
+    mygroup.comments= request.POST['comments']
 
         
-        # check whether it's valid:
-        #if mygroup.is_valid():
+    # check whether it's valid:
+    #if mygroup.is_valid():
 
-        mygroup.save()
-        # redirect to a new URL:
-        return HttpResponseRedirect('/thankyou/')
-    return render(request, 'perGroup.html')
+    mygroup.save()
+    # redirect to a new URL:
+    return HttpResponseRedirect('/home/judge/judgeforms/pergroup/thankyou/')
+    # return render(request, 'perGroup.html')
 
 
 from judges.models import PerSessionForm
@@ -101,5 +101,5 @@ def get_persession(request):
 
         mysession.save()
         # redirect to a new URL:
-        return HttpResponseRedirect('/thankyou/')
+        return HttpResponseRedirect('/home/judge/judgeforms/pergroup/thankyou/')
         return render(request, 'perSession.html')

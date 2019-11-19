@@ -45,7 +45,7 @@
             <div class="container" style="position: relative;">
                 <h1 style="text-align: center; margin-top: 30px; margin-bottom: 30px;">Project Evaluation Form</h1>
 		    
-                <form method="POST" action="{% url 'pergroup' %}" style="text-align: center;">
+                <form method="POST" action="{% url 'getpergroup' %}" style="text-align: center;">
                     {% csrf_token %}
                     <fieldset>
                         <legend><h4>Session Information</h4></legend>

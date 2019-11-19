@@ -38,4 +38,3 @@ urlpatterns = [
 	path('judgeforms/pergroup/thankyou/', views.thankyou, name='thankyou')
 	
 ]
-
