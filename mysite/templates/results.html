@@ -77,16 +77,8 @@
 						</tr>
 					</thead>
 					<tr>
-						{#}
-						{% for eval in eval_average %}
-						<td>    {{ eval_average.0 }}</td>
-						{% endfor %}
 						
-						{% for session in session_list %}
-						<td value="{{ session.id }}">{{ session.sessionNum }}</td>
-						{% endfor %}
-						*/
-						{#}
+
 						{% if session_list %}
 							{% for session in session_list %}
 							<td> {{ session.sessionNum }} </td>
