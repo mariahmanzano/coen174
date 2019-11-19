@@ -53,8 +53,8 @@
                 <h1 style="text-align: center; margin-top: 30px; margin-bottom: 30px;">Update a Session</h1>
 
                 <form method="POST" action="{% url 'updatesession' session.id %}" style="text-align: center;">
-					{% csrf_token %}
-					<fieldset>
+		{% csrf_token %}
+		<fieldset>
                         <legend>Session Information</legend>
                         <p>
                             <label>Session Number</label>
@@ -64,7 +64,7 @@
                             <label>Room Number</label>
                             <input type="text" id="roomNum" name="roomNum" required value={{session.roomNum}} >>
                         </p>
-                    </fieldset>
+                </fieldset>
 
                     <button type="submit" class="btn btn-primary centerMe" style="margin-top: 20px; display: block;">Submit</button>
 

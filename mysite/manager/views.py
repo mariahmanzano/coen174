@@ -18,8 +18,8 @@ def adminoptions(request):
 def adminforms(request):
     return render(request, 'adminforms.html')
 
-def addgroupform(request):
-    return render(request, 'addgroupform.html')
+def addgroupform(request, session_id):
+    return render(request, 'addgroupform.html', {'session_id': session_id})
 
 def sendscores(request):
     return render(request, 'sendscores.html')
@@ -28,7 +28,8 @@ def thankyouadmin(request):
     return render(request, 'thankyouadmin.html')
     
 def results(request):
-    return render(request, 'results.html')
+	session_list = NewSessionForm.objects.order_by('sessionNum')
+	return render(request, 'results.html', {'session_list': session_list})
 
 def edit_session(request, session_id):
     session = get_object_or_404(NewSessionForm, pk=session_id)
