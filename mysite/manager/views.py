@@ -103,7 +103,6 @@ def editsession(request):
     return render(request, 'editsession.html', {'session_list': session_list, 'group_list': group_list} )
 
 
-
 def add_session(request):
 
     mysession = NewSessionForm()
@@ -120,6 +119,7 @@ def add_session(request):
 
     session_list = NewSessionForm.objects.order_by('sessionNum')
     return render(request, 'editsession.html', {'session_list': session_list})
+    # return HttpResponseRedirect('/home/admin/adminoptions/editsession')
     
 def send_email(request):
     msg = EmailMessage(
