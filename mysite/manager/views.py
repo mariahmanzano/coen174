@@ -18,8 +18,8 @@ def adminoptions(request):
 def adminforms(request):
     return render(request, 'adminforms.html')
 
-def addgroupform(request):
-    return render(request, 'addgroupform.html')
+def addgroupform(request, session_id):
+    return render(request, 'addgroupform.html', {'session_id': session_id})
 
 def sendscores(request):
     return render(request, 'sendscores.html')
