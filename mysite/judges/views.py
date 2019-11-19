@@ -34,7 +34,7 @@ def get_pergroup(request):
     #if request.method == 'POST':
     # create a form instance and populate it with data from the request:
     mygroup = PerGroupForm()
-        
+
     # process the data in form.cleaned_data as required
     mygroup.sessionNum = request.POST.get('sessionNum', False)
     mygroup.roomNum = request.POST.get('roomNum', False)
