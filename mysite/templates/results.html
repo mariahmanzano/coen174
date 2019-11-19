@@ -81,11 +81,9 @@
 						<td>    {{ eval_average.0 }}</td>
 						{% endfor %}
 						
-						{% if session_list %}
-							{% for session in session_list %}
-							<td value="{{ session.id }}">{{ session.sessionNum }}</td>
-							{% endfor %}
-						{% endif %}
+						{% for session in session_list %}
+						<td value="{{ session.id }}">{{ session.sessionNum }}</td>
+						{% endfor %}
 					</tr>
 				</table>
 					
