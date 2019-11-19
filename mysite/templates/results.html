@@ -72,28 +72,40 @@
 					<thead class="table-active">
 						<tr>
 							<td>Session Number</td>
-							<td>Group Number</td>
+							<td>Project Name</td>
 							<td>Average</td>
 						</tr>
 					</thead>
 					<tr>
-						
 
-						{% if session_list %}
+						{% if eval_session %}
+							<td> {{ eval_session }} </td>
+						{% endif %}
+
+						{% if eval_project %}
+							<td> {{ eval_project }} </td>
+						{% endif %}
+
+				
+						{% if eval_average %}
+							<td> {{eval_average }} </td>
+						{% endif %}
+
+
 							{% for session in session_list %}
-							<td> {{ session.sessionNum }} </td>
+							<tr>
+								<td> {{ session.sessionNum }} </td>
+								{% for group in group_list %}
+									<td> {{ group.project_name }} </td>
+									{% for eval in eval_average %}
+										{{ forloop.counter0 }}
+										<td> {{ eval_average.0 }} </td>
+										</tr>
+									{% endfor %}
+								{% endfor %}
 							{% endfor %}
-                        			{% endif %}
 
-                        			{% if group_list %}
-							{% for group in group_list %}
-							<td> {{ group.project_name }} </td>
-							{% endfor %}
-                        			{% endif %}
 
-						{% for eval in eval_average %}
-						<td>    {{ eval_average.0 }}</td>
-						{% endfor %}
 
 					</tr>
 				</table>
