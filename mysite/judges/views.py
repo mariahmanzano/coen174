@@ -75,31 +75,31 @@ from judges.models import PerSessionForm
 
 def get_persession(request):
     # if this is a POST request we need to process the form data
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        mysession = PerSessionForm()
+    # if request.method == 'POST':
+    # create a form instance and populate it with data from the request:
+    mysession = PerSessionForm()
         
-        # process the data in form.cleaned_data as required
-        mysession.dis1= request.POST['dis1']
-        mysession.q1= request.POST['q1']
-        mysession.q2= request.POST['q2']
-        mysession.q3= request.POST['q3']
-        mysession.q4= request.POST['q4']
-        mysession.q5= request.POST['q5']
-        mysession.q6= request.POST['q6']
-        mysession.q7= request.POST['q7']
-        mysession.q8= request.POST['q8']
-        mysession.q9= request.POST['q9']
-        mysession.q10= request.POST['q10']
-        mysession.q11= request.POST['q11']
-        mysession.q12= request.POST['q12']
+    # process the data in form.cleaned_data as required
+    mysession.dis1= request.POST['dis1']
+    mysession.q1= request.POST['q1']
+    mysession.q2= request.POST['q2']
+    mysession.q3= request.POST['q3']
+    mysession.q4= request.POST['q4']
+    mysession.q5= request.POST['q5']
+    mysession.q6= request.POST['q6']
+    mysession.q7= request.POST['q7']
+    mysession.q8= request.POST['q8']
+    mysession.q9= request.POST['q9']
+    mysession.q10= request.POST['q10']
+    mysession.q11= request.POST['q11']
+    mysession.q12= request.POST['q12']
 
-        mysession.comments= request.POST['comments']
+    mysession.comments= request.POST['comments']
         
-        # check whether it's valid:
-        #if mysession.is_valid():
+    # check whether it's valid:
+    #if mysession.is_valid():
 
-        mysession.save()
-        # redirect to a new URL:
-        return HttpResponseRedirect('/home/judge/judgeforms/pergroup/thankyou/')
-        return render(request, 'perSession.html')
+    mysession.save()
+    # redirect to a new URL:
+    return HttpResponseRedirect('/home/judge/judgeforms/persession/thankyou/')
+    # return render(request, 'perSession.html')
