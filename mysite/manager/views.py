@@ -112,13 +112,13 @@ def add_session(request):
 
     mysession.save()
 
-
     # check whether it's valid:
     # if mysession.is_valid():
 
     session_list = NewSessionForm.objects.order_by('sessionNum')
     return render(request, 'editsession.html', {'session_list': session_list})
     # return HttpResponseRedirect('/home/admin/adminoptions/editsession')
+
     
 def send_email(request):
     msg = EmailMessage(
