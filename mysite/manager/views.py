@@ -56,19 +56,18 @@ def show_session(request, session_id):
     group_list = Group.objects.order_by('group_name')
     return render(request, 'showsessiondetail.html', {'session': mysession, 'group_list': group_list} )
 
-def add_group(request):
- 
+def add_group(request, session_id):
+
     # create a Group instance and populate it with data from the request form:
     mygroup = Group()
 
     mygroup.project_name= request.POST['project']
     mygroup.group_name= request.POST['group']
     mygroup.advisor_name= request.POST['advisor']
-    session = get_object_or_404(NewSessionForm, pk=request.POST['session_id'])
+    session = get_object_or_404(NewSessionForm, pk=session_id)
     mygroup.session = session
     mygroup.save()
 
-    session = get_object_or_404(NewSessionForm, pk=mygroup.session.id)
     group_list = Group.objects.order_by('project_name')
     return render(request, 'showsessiondetail.html', {'session': session, 'group_list': group_list} )
 
