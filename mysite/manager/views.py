@@ -3,6 +3,7 @@ from django import forms
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from manager.models import NewSessionForm, Group
+from judges.models import PerSessionForm, PerGroupForm
 from django.core.mail import EmailMessage
 
 
