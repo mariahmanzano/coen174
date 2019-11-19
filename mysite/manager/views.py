@@ -4,7 +4,6 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from manager.models import NewSessionForm, Group
 from django.core.mail import EmailMessage
-from judges.models import PerSessionForm, PerGroupForm
 
 
 # Create your views here.
