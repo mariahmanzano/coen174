@@ -67,7 +67,7 @@ def get_pergroup(request):
 
     mygroup.save()
     # redirect to a new URL:
-    return render(request, 'thankyou.html')
+    return HttpResponseRedirect('/home/judge/judgeforms/persession/thankyou/')
 
 
 from judges.models import PerSessionForm
