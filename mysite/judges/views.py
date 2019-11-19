@@ -40,6 +40,8 @@ def get_pergroup(request):
         mygroup.roomNum = request.POST['roomNum']
         mygroup.project_name= request.POST['project']
 	
+        mygroup.sessionNum= request.POST['sessionId']
+        mygrou.project_name= request.POST['group.project_name']
         #mygroup.group_name= request.POST['group']
         #mygroup.advisor_name= request.POST['advisor']
 
@@ -66,7 +68,7 @@ def get_pergroup(request):
         mygroup.save()
         # redirect to a new URL:
         return HttpResponseRedirect('/thankyou/')
-        return render(request, 'perGroup.html')
+    return render(request, 'perGroup.html')
 
 
 from judges.models import PerSessionForm
