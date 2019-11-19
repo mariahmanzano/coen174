@@ -76,22 +76,24 @@
 							<td>Average</td>
 						</tr>
 					</thead>
+					{% for counter in eval_counter %}
 					<tr>
-
+					
 						{% if eval_session %}
-							<td> {{ eval_session }} </td>
+							<td> {{ eval_session.0 }} </td>
 						{% endif %}
 
 						{% if eval_project %}
-							<td> {{ eval_project }} </td>
+							<td> {{ eval_project.0 }} </td>
 						{% endif %}
 
 				
 						{% if eval_average %}
-							<td> {{eval_average }} </td>
+							<td> {{eval_average.0 }} </td>
 						{% endif %}
 
-
+					</tr>
+					{% endfor %}
 							{% for session in session_list %}
 							<tr>
 								<td> {{ session.sessionNum }} </td>

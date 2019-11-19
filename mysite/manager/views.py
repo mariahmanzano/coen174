@@ -154,6 +154,8 @@ def display_results(request):
     
     eval_sum = 0
     eval_total = 0
+    counter = 0
+    eval_counter = []
     eval_average = []
     eval_session = []
     eval_project = []
@@ -164,12 +166,15 @@ def display_results(request):
         eval_session.append(form.sessionNum)
         project = form.project_name
         eval_project.append(project)
+        eval_counter.append(counter)
+        counter+=1
     
     all_results = {
         'average': average,
         'eval_average': eval_average,
         'eval_session': eval_session,
-        'eval_project': eval_project
+        'eval_project': eval_project,
+        'eval_counter': eval_counter
     }
     
     return render(request, 'results.html', all_results)
