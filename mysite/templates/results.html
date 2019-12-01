@@ -65,55 +65,32 @@
        				</tr>
         		</table>
 				<br><br>
-				<!-- Results for Project Evaluation Forms -->
-				<h2>Project Evaluation Form</h2>
-				<br>
-				<table class="table table-bordered">
-					<thead class="table-active">
-						<tr>
-							<td>Session Number</td>
-							<td>Project Name</td>
-							<td>Average</td>
-						</tr>
-					</thead>
-					{% for counter in eval_counter %}
-					<tr>
-					
-						{% if eval_session %}
-							<td> {{ eval_session.0 }} </td>
-						{% endif %}
+			<!-- Results for Project Evaluation Forms -->
+			<h2>Project Evaluation Form</h2>
+			<br>
+			 {% if eval_projects %}
+			    <table class="table table-bordered">
+				<thead class="table-active">
+				    <tr>
+					<td>Session Number</td>
+					<td>Project Name</td>
+					<td>Average</td>
+				    </tr>
+				</thead>
+				{% for group in eval_projects %}
+				    <tr>
+					{% for x in group %}
+					    <td> {{ x }} </td>
+					{% endfor %}                                                          
+				    </tr>
+				{% endfor %}                             
+			    </table>
+			{% else %}
+			    <h3> No group results to report</h3>
 
-						{% if eval_project %}
-							<td> {{ eval_project.0 }} </td>
-						{% endif %}
-
-				
-						{% if eval_average %}
-							<td> {{eval_average.0 }} </td>
-						{% endif %}
-
-					</tr>
-					{% endfor %}
-							{% for session in session_list %}
-							<tr>
-								<td> {{ session.sessionNum }} </td>
-								{% for group in group_list %}
-									<td> {{ group.project_name }} </td>
-									{% for eval in eval_average %}
-										{{ forloop.counter0 }}
-										<td> {{ eval_average.0 }} </td>
-										</tr>
-									{% endfor %}
-								{% endfor %}
-							{% endfor %}
-
-
-
-					</tr>
-				</table>
+			{% endif %}   
 					
 
-   
 				<p style="text-align: center"><a href="{% url 'sendscores' %}" class="btn btn-primary px-4 py-3">Send Scores</a></p>
 
             </div>
