@@ -133,18 +133,21 @@ def send_email(request):
 
 def display_results(request):
 
-    # Senior Design Experience
-    
-    all_forms = PerSessionForm.objects.all()
+	# Senior Design Experience
 
-    # Average
-    
-    session_sum = 0
-    total = 0
-    for form in all_forms:
-        session_sum += (form.q1 + form.q2 + form.q3 + form.q4 + form.q5 + form.q6 + form.q7 + form.q8 + form.q9 + form.q10 + form.q11 + form.q12)
-        total += 1
-    average = session_sum / total
+	all_forms = PerSessionForm.objects.all()
+
+	# Average
+
+	session_sum = 0
+	num_sessions= 0
+	session_eval_average= 0
+	for form in all_forms:
+		session_sum += (form.q1 + form.q2 + form.q3 + form.q4 + form.q5 + form.q6 + form.q7 + form.q8 + form.q9 + form.q10 + form.q11 + form.q12)
+		num_sessions += 1
+
+	if num_sessions > 0: 
+		session_eval_average = session_sum / num_sessions
     
     # Project Evaluation Form
     
@@ -152,29 +155,20 @@ def display_results(request):
 
     # Average
     
+    # Create a project evaluation list, one entry for each group.
+    # Each entry is a tuple of 3 values: session number, project name, and average evaluation score for the project.
+    
     eval_sum = 0
-    eval_total = 0
-    counter = 0
-    eval_counter = []
-    eval_average = []
-    eval_session = []
-    eval_project = []
+    eval_total = 12
+
+    eval_projects = []
     for form in eval_forms:
-        eval_sum += (form.technical_accuracy + form.creativity + form.supporting_work + form.design_process + form.project_complexity + form.completion + form.tests + form.response + form.organization + form.time + form.visual + form.confidence)
-        eval_total += 1
-        eval_average.append(eval_sum / eval_total)
-        eval_session.append(form.sessionNum)
-        project = form.project_name
-        eval_project.append(project)
-        eval_counter.append(counter)
-        counter+=1
+        eval_sum = (form.technical_accuracy + form.creativity + form.supporting_work + form.design_process + form.project_complexity + form.completion
+            + form.tests + form.response + form.organization + form.time + form.visual + form.confidence)
+        avg = (eval_sum / eval_total)
+        group_eval = (form.sessionNum, form.project_name, avg) # the values order must match the column order
+        eval_projects.append(group_eval)
     
-    all_results = {
-        'average': average,
-        'eval_average': eval_average,
-        'eval_session': eval_session,
-        'eval_project': eval_project,
-        'eval_counter': eval_counter
-    }
+    return render(request, 'results.html', {'average': session_eval_average, 'eval_projects': eval_projects})
     
-    return render(request, 'results.html', all_results)
+ 
