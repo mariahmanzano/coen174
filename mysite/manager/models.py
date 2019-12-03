@@ -1,5 +1,9 @@
+#models for new session and new group forms
+#admin authentication
+
 from django.db import models
 
+#create new sesssion using input session and room numbers
 class NewSessionForm(models.Model):
     sessionNum = models.CharField(max_length=10)
     roomNum = models.CharField(max_length=10)
@@ -10,6 +14,7 @@ class NewSessionForm(models.Model):
     def is_valid():
         return True;
 
+#create new group using input project name, group name, and advisor name
 class Group (models.Model):
     project_name= models.CharField(max_length=50)
     group_name= models.CharField(max_length=50)
@@ -23,6 +28,7 @@ class Group (models.Model):
     def is_valid():
         return True;
 
+#authenticate admin user when logging in
 class adminPermission(models.Model):
     adminPermission = "Permission for admin."
     

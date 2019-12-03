@@ -1,3 +1,5 @@
+#create manager application
+
 from django.apps import AppConfig
 
 
