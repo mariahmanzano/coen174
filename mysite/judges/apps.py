@@ -1,3 +1,5 @@
+#create judge application
+
 from django.apps import AppConfig
 
 
