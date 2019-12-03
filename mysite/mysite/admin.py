@@ -6,3 +6,4 @@ admin.site.register(NewSessionForm)
 admin.site.register(Group)
 admin.site.register(PerGroupForm)
 admin.site.register(PerSessionForm)
+admin.site.site_url = '/home/'

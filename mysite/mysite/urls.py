@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from django.contrib.auth import login, logout
 # import views
 
 urlpatterns = [
@@ -23,6 +24,9 @@ urlpatterns = [
 
 	# Path to Index
 	path('home/', views.home, name='home'),
+
+	# Path to Login
+	path('accounts/', include('django.contrib.auth.urls')),
 
 	# Path to Admin
 	path('home/admin/', include('manager.urls')), 

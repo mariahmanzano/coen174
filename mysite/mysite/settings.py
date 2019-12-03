@@ -24,6 +24,10 @@ SECRET_KEY = '-5zp!tafl9w&%8ye-$i(y%&yaug*xgu&n65ny167r!4(-q8$jg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Define redirects for login
+LOGIN_REDIRECT_URL = '/home/'
+LOGOUT_REDIRECT_URL = '/home/'
+
 ALLOWED_HOSTS = [
     '0.0.0.0',
     '127.0.0.1',

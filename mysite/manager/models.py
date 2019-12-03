@@ -22,3 +22,13 @@ class Group (models.Model):
 
     def is_valid():
         return True;
+
+class adminPermission(models.Model):
+    adminPermission = "Permission for admin."
+    
+    class Meta:
+        permissions = [
+            ("is_admin", "This user is an admin")
+        ]
+    def _str_(self):
+        return self.adminPermission

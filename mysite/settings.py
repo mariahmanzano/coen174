@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 	'mysite',
     'judges',
     'manager',
+	'pin_passcode'
 ]
 
 MIDDLEWARE = [
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+	'pin_passcode.middleware.PinPasscodeMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -139,3 +141,5 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'sdcjudge@gmail.com'
 EMAIL_HOST_PASSWORD = 'swesdjc2019'
+
+PIN_PASSCODE_PIN - 123

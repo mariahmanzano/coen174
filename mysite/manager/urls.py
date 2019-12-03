@@ -66,4 +66,5 @@ urlpatterns = [
  
 	# Path to View Results
 	path('results/', views.display_results, name='results'),
+
 ]

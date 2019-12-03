@@ -2,6 +2,8 @@ from django.db import models
 from django import forms
 import operator
 
+# Collect information from Group Evaluation Form
+
 class PerGroupForm(models.Model):
     
     CHOICES = (
@@ -37,6 +39,8 @@ class PerGroupForm(models.Model):
         
     def is_valid():
         return True;
+        
+# Collect information from Senior Design Experience Form
     
 class PerSessionForm(models.Model):
     
@@ -67,3 +71,17 @@ class PerSessionForm(models.Model):
     
     def is_valid():
         return True;
+
+
+# Permissions for Judges to enter site
+
+class judgePermissionModel(models.Model):
+	judgePermissionModel = "Permission for judges."
+
+	class Meta:
+		permissions = [
+			("is_judge", "This user is a judge")
+		]
+
+	def _str_(self):
+		return self.judgePermissionModel

@@ -36,8 +36,35 @@
   					<div class="text">
   						<h2 style="color: #fff;">School of Engineering</h2>
 						<h4 class="mb-5">Senior Design Conference 2020</h4>
-						<p style="display: inline;"><a href="/home/admin/" class="btn btn-white px-4 py-3"><i class="ion-ios-arrow-dropright-circle mr-2"></i>I'm an Admin</a></p>
-  						<p style="display: inline;"><a href="/home/judge/" class="btn btn-white px-4 py-3"><i class="ion-ios-arrow-dropright-circle mr-2"></i>I'm a Judge</a></p>
+						
+						<!-- Check user authentication & type of user -->
+
+						{% if user.is_authenticated %}
+
+							<!-- Admin -->
+							{% if perms.manager.is_admin %}
+								<p style="display: inline;"><a href="/home/admin/adminoptions/" class="btn btn-white px-4 py-3"><i class="ion-ios-arrow-dropright-circle mr-2"></i>I'm an Admin</a></p>
+							{% endif %}
+
+							<!-- Judge -->
+							{% if perms.judges.is_judge%}
+  								<p style="display: inline;"><a href="/home/judge/judgeforms/" class="btn btn-white px-4 py-3"><i class="ion-ios-arrow-dropright-circle mr-2"></i>I'm a Judge</a></p>
+							{% endif %}
+
+							<!-- Superuser -->
+							{% if perms.admin.is_superuser %}
+								<p style="display: inline;"><a href="/admin/" class="btn btn-white px-4 py-3"><i class="ion-ios-arrow-dropright-circle mr-2"></i>Superuser</a></p>
+							{% endif %}
+							
+							<p style="display: block;"><a class="btn btn-black px-4 py-3" href={% url 'logout' %}>Logout</a></p> 
+
+							<!-- User is not logged in -->
+
+							{% else %}
+								<p style="display: block;"><a href="/accounts/login/" class="btn btn-white px-4 py-3">Login</a></p>
+
+						{% endif %}
+
   					</div>
   				</div>
   			</div>

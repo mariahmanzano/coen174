@@ -39,7 +39,17 @@
 			box-shadow: 0 5px 18px -12px rgba(0, 0, 0, 0.09)
 		}
 
-	
+		#id_username {
+			height: 30px;
+			width: 225px;
+			border-radius: 3;
+		}
+
+		#id_password {
+			height: 30px;
+			width: 225px;
+			border-radius: 3;
+		}
 	
 	</style>
   </head>
@@ -57,6 +67,8 @@
   					<div class="text">
   						<h2 style="color: #fff;">School of Engineering</h2>
 						<h4 class="mb-5">Senior Design Conference 2020</h4>
+
+						<!-- Submit Login Information -->
 						<form method = "post">
 							{% csrf_token %}
 							{{ form.as_p }}
