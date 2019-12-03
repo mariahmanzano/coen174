@@ -58,7 +58,7 @@
                 <tr>
         			    <td>Session Number</td>
         			    <td>Room Number</td>
-        			    <td>Session Id</td>
+        			    <!--<td>Session Id</td>-->
         			    <td>Edit</td>
         			    <td>Delete </td>
                         <td>Groups </td>
@@ -68,7 +68,7 @@
         		    <tr>
         			<td>   {{ session.sessionNum }} </td>
         			<td>  {{ session.roomNum }}</td>
-        			<td>   {{ session.id }}</td>
+        			<!--<td>   {{ session.id }}</td>-->
         			<td><a href="{% url 'editasession' session.id %}">Edit</a></td>
         			<td><a href="{% url 'deletesession' session.id %}">Delete</a></td>
                     <td><a href="{% url 'showsession' session.id %}">Groups</a></td>

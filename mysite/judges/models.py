@@ -1,5 +1,6 @@
 from django.db import models
 from django import forms
+import operator
 
 class PerGroupForm(models.Model):
     
@@ -33,7 +34,7 @@ class PerGroupForm(models.Model):
     
     overview= models.CharField(max_length=20)
     comments= models.CharField(max_length=100)
-    
+        
     def is_valid():
         return True;
     

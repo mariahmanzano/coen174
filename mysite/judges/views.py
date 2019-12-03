@@ -36,14 +36,13 @@ def get_pergroup(request):
     mygroup = PerGroupForm()
 
     # process the data in form.cleaned_data as required
-    mygroup.sessionNum = request.POST.get('sessionNum', False)
+    # mygroup.sessionNum = request.POST.get('sessionNum', False)
     mygroup.roomNum = request.POST.get('roomNum', False)
-    mygroup.project_name= request.POST.get('project', False)
-	
-    mygroup.sessionNum= request.POST['sessionId']
-    mygroup.project_name= request.POST['group.project_name']
-    #mygroup.group_name= request.POST['group']
-    #mygroup.advisor_name= request.POST['advisor']
+    mygroup.project_name= request.POST.get('group.project_name', False)
+
+    mygroup.sessionNum= request.POST.get('sessionId', False)
+    mygroup.group_name= request.POST.get('group.group_name', False)
+    mygroup.advisor_name= request.POST.get('group.advisor_name', False)
 
     mygroup.technical_accuracy= request.POST['design1']
     mygroup.creativity= request.POST['design2']

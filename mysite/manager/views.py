@@ -5,6 +5,7 @@ from django.shortcuts import render
 from manager.models import NewSessionForm, Group
 from judges.models import PerSessionForm, PerGroupForm
 from django.core.mail import EmailMessage
+import operator
 
 
 # Create your views here.
@@ -135,23 +136,24 @@ def display_results(request):
 
 	# Senior Design Experience
 
-	all_forms = PerSessionForm.objects.all()
+    all_forms = PerSessionForm.objects.all()
 
 	# Average
 
-	session_sum = 0
-	num_sessions= 0
-	session_eval_average= 0
-	for form in all_forms:
-		session_sum += (form.q1 + form.q2 + form.q3 + form.q4 + form.q5 + form.q6 + form.q7 + form.q8 + form.q9 + form.q10 + form.q11 + form.q12)
-		num_sessions += 1
+    session_sum = 0
+    num_sessions= 0
+    session_eval_average= 0
+    for form in all_forms:
+        session_sum += (form.q1 + form.q2 + form.q3 + form.q4 + form.q5 + form.q6 + form.q7 + form.q8 + form.q9 + form.q10 + form.q11 + form.q12)
+        num_sessions += 1
 
-	if num_sessions > 0: 
-		session_eval_average = session_sum / num_sessions
+    if num_sessions > 0:
+        session_eval_average = '%.2f'%(session_sum / num_sessions)
     
     # Project Evaluation Form
     
     eval_forms = PerGroupForm.objects.all()
+    
 
     # Average
     
@@ -163,11 +165,12 @@ def display_results(request):
 
     eval_projects = []
     for form in eval_forms:
-        eval_sum = (form.technical_accuracy + form.creativity + form.supporting_work + form.design_process + form.project_complexity + form.completion
-            + form.tests + form.response + form.organization + form.time + form.visual + form.confidence)
-        avg = (eval_sum / eval_total)
-        group_eval = (form.sessionNum, form.project_name, avg) # the values order must match the column order
+        eval_sum = (form.technical_accuracy + form.creativity + form.supporting_work + form.design_process + form.project_complexity + form.completion + form.tests + form.response + form.organization + form.time + form.visual + form.confidence)
+        avg = '%.2f'%(eval_sum / eval_total)
+        group_eval = [form.sessionNum, form.project_name, form.group_name, form.advisor_name, avg] # the values order must match the column order
         eval_projects.append(group_eval)
+    
+    eval_projects = sorted(eval_projects, key = operator.itemgetter(0, 4))
     
     return render(request, 'results.html', {'average': session_eval_average, 'eval_projects': eval_projects})
     
