@@ -1,3 +1,5 @@
+# URLs includes the paths to certain views and the names referenced by HTML files. The Judges > URLs page in particular shows paths throughout the Judges portion of the site. 
+
 """mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:

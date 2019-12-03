@@ -1,3 +1,5 @@
+# The Judges > views page controls all of the information displayed to users. We created the Judges views here which are referenced in the URLs. We imported the information gathered from the models to populate the forms. 
+
 from django.shortcuts import render
 from django import forms
 from manager.models import NewSessionForm, Group
@@ -5,6 +7,8 @@ from django.http import HttpResponseRedirect
 from judges.models import PerGroupForm
 
 # Create your views here.
+
+# Render the HTML pages and display
 
 def judge(request):
     return render(request, 'judge.html')
@@ -14,6 +18,8 @@ def judgeforms(request):
 
 def persession(request):
     return render(request, 'perSession.html')
+    
+# For the Group Evaluation Form, send information created from session information and individual group information
 
 def pergroup(request):
         session_list = NewSessionForm.objects.order_by('sessionNum')
@@ -28,6 +34,8 @@ from django.shortcuts import render
 
 from judges.models import PerGroupForm
 from manager.models import NewSessionForm
+
+# Display and save the information gathered from the Senior Design Group Evaluation Form
 
 def get_pergroup(request):
     # if this is a POST request we need to process the form data
@@ -70,6 +78,8 @@ def get_pergroup(request):
 
 
 from judges.models import PerSessionForm
+
+# Save the information gathered from the Senior Design Experience form
 
 def get_persession(request):
     # if this is a POST request we need to process the form data

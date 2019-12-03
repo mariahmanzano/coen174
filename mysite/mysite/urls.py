@@ -18,7 +18,7 @@ from django.urls import path, include
 from . import views
 from django.contrib.auth import login, logout
 # import views
-
+# Provides the start path for admin and judge
 urlpatterns = [
 	path('admin/', admin.site.urls),
 

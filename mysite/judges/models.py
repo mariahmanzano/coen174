@@ -1,3 +1,7 @@
+# Judges > Models file contains the classes called by the views file and various HTML files. The models pull information from the input values on the HTML file and will send the information to the views files that call the different classes.
+# PerGroupForm pulls information gathered from the Group Evaluation Form and Per SessionForm pulls infomration gathered from the Senior Design Experience.
+# The Judge Permission Model is essential in allowing for Judges to log in and use the system. It checks which permissions that the user has and allows them to view certain pages based on those permissions.
+
 from django.db import models
 from django import forms
 import operator
