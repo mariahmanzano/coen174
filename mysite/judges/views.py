@@ -1,15 +1,16 @@
-# The Judges > views page controls all of the information displayed to users. We created the Judges views here which are referenced in the URLs. We imported the information gathered from the models to populate the forms. 
+# Judge side views
+# Controls all of the information displayed to users. We created the Judges views here which are referenced in the URLs. 
+# Imported information gathered from the models to populate the forms. 
 
 from django.shortcuts import render
 from django import forms
 from manager.models import NewSessionForm, Group
 from django.http import HttpResponseRedirect
 from judges.models import PerGroupForm
+from judges.models import PerSessionForm
 
-# Create your views here.
 
 # Render the HTML pages and display
-
 def judge(request):
     return render(request, 'judge.html')
 
@@ -20,23 +21,19 @@ def persession(request):
     return render(request, 'perSession.html')
     
 # For the Group Evaluation Form, send information created from session information and individual group information
-
+#return pergroup.html
 def pergroup(request):
         session_list = NewSessionForm.objects.order_by('sessionNum')
         group_list = Group.objects.order_by('project_name')
         return render(request, 'perGroup.html', {'session_list': session_list, 'group_list': group_list})
-
+    
+#return thankyou.html after form submission
 def thankyou(request):
     return render(request, 'thankyou.html')
 
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
 
-from judges.models import PerGroupForm
-from manager.models import NewSessionForm
-
-# Display and save the information gathered from the Senior Design Group Evaluation Form
-
+# Process data from the Senior Design Group Evaluation Form
+#return thankyou.html
 def get_pergroup(request):
     # if this is a POST request we need to process the form data
     #if request.method == 'POST':
@@ -68,23 +65,17 @@ def get_pergroup(request):
     mygroup.overview= request.POST['topics']
     mygroup.comments= request.POST['comments']
 
-        
-    # check whether it's valid:
-    #if mygroup.is_valid():
 
     mygroup.save()
     # redirect to a new URL:
     return render(request, 'thankyou.html')
 
 
-from judges.models import PerSessionForm
 
-# Save the information gathered from the Senior Design Experience form
-
+#Process data gathered from the Senior Design Experience form
+#return thankyou.html
 def get_persession(request):
-    # if this is a POST request we need to process the form data
-    # if request.method == 'POST':
-    # create a form instance and populate it with data from the request:
+
     mysession = PerSessionForm()
         
     # process the data in form.cleaned_data as required
@@ -103,9 +94,7 @@ def get_persession(request):
     mysession.q12= request.POST['q12']
 
     mysession.comments= request.POST['comments']
-        
-    # check whether it's valid:
-    #if mysession.is_valid():
+     
 
     mysession.save()
     # redirect to a new URL:
